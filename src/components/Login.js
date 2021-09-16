@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 
 import Card from 'react-bootstrap/Card'
-import { Button, Dropdown, DropdownButton, Image, Col, Row} from 'react-bootstrap'
+import { Button, Dropdown, DropdownButton, Image, Col, Row, Form} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css' 
 
 class Login extends Component {
@@ -12,10 +12,11 @@ class Login extends Component {
         selection: '',
     }
     
-    handleSelect =(e)=>{
-        console.log(e);
+    updateSelection = (e) => {
+
+        console.log("The selection is: ",e);
         this.setState(() => ({
-            e
+            selection: e
         }))
     }
 
@@ -29,10 +30,10 @@ class Login extends Component {
     }
       
     render(){
-        console.log(this.props);
+        console.log(this.state)
 
         const { selection } = this.state
-        const {users} = this.props
+        const { users } = this.props
 
         return (
             <div class="col-xs-1" align="center">
@@ -47,11 +48,29 @@ class Login extends Component {
                             Please sign in below to continue!
                         </Card.Title>
                         
+                        {/* <select 
+                            value={selection} 
+                            onChange={this.updateSelection}
+                        >
+                            <option value="Select User">Select User</option>
+                            {
+                                this.props.userIds.map((id) => (
+                                    <option 
+                                        key={users[id].id} 
+                                        value={users[id].id}
+                                    >
+                                        {users[id].name}
+                                    </option>
+                                )    
+                                )
+                            }
+                         </select> */}
+
                         <DropdownButton 
                             id="dropdown-basic-button" 
-                            title="Select User" 
+                            title={selection !== "" ? users[selection].name : "Select User"} 
                             size="lg"
-                            onSelect={this.handleSelect}
+                            onSelect={this.updateSelection}
                         >
 
                             {this.props.userIds.map((id) => (
@@ -72,6 +91,19 @@ class Login extends Component {
                                     </Dropdown.Item>
                                 </div>
                             ))}
+
+                            <Dropdown.Divider />
+
+                            <Dropdown.Item
+                                key=""
+                                eventKey=""
+                                size="lg"
+                            >
+                                <Col>
+                                    Clear Selection
+                                </Col>
+                            </Dropdown.Item>
+
                         </DropdownButton>
                         
                         <Button 
@@ -79,7 +111,7 @@ class Login extends Component {
                             size="lg"
                             type='submit'
                             onClick={this.handleSignIn}
-                            disabled={selection === ''}
+                            disabled={selection === 'Select User' || selection === ''}
                         >
                             Sign In
                         </Button>
