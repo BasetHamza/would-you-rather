@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading'
 
 import { handleInitialData } from '../actions/shared'
-import Login from '../components/Login'
+import LoginPage from '../pages/LoginPage'
 
 class App extends Component {
 
@@ -14,7 +14,7 @@ class App extends Component {
     render () {
         return (
             <div>
-                <Login />
+                <LoginPage />
             </div>
         )
     }

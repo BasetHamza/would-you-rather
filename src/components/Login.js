@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 
 import Card from 'react-bootstrap/Card'
-import { Button, Dropdown, DropdownButton, Image, Col, Row, Form} from 'react-bootstrap'
+import { Button, Dropdown, DropdownButton, Image, Col, Row} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css' 
 
 class Login extends Component {
@@ -13,11 +13,20 @@ class Login extends Component {
     }
     
     updateSelection = (e) => {
-
-        console.log("The selection is: ",e);
         this.setState(() => ({
             selection: e
         }))
+    }
+
+    resetAuthedUser = () => {
+        
+        const { dispatch } = this.props
+
+        this.setState(() => ({
+            selection: ""
+        }))
+
+        dispatch(setAuthedUser(""))    
     }
 
     handleSignIn = (e) => {
@@ -30,8 +39,6 @@ class Login extends Component {
     }
       
     render(){
-        console.log(this.state)
-
         const { selection } = this.state
         const { users } = this.props
 
@@ -74,7 +81,10 @@ class Login extends Component {
                         >
 
                             {this.props.userIds.map((id) => (
-                                <div className="align-items-center">
+                                <div 
+                                    className="align-items-center" 
+                                    key={users[id].id}
+                                >
                                     <Dropdown.Item 
                                         key={users[id].id} 
                                         eventKey={users[id].id}
@@ -98,6 +108,7 @@ class Login extends Component {
                                 key=""
                                 eventKey=""
                                 size="lg"
+                                onSelect={this.resetAuthedUser}
                             >
                                 <Col>
                                     Clear Selection
