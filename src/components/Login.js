@@ -1,31 +1,91 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser'
 
-import { Button, Card, Dropdown, DropdownButton } from 'react-bootstrap'
+import Card from 'react-bootstrap/Card'
+import { Button, Dropdown, DropdownButton, Image, Col, Row} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css' 
 
 class Login extends Component {
-    render(){
-        console.log(this.props.users);
 
+    state = {
+        selection: '',
+    }
+    
+    handleSelect =(e)=>{
+        console.log(e);
+        this.setState(() => ({
+            e
+        }))
+    }
+
+    handleSignIn = (e) => {
+        e.preventDefault()
+    
+        const { selection } = this.state
+        const { dispatch } = this.props
+    
+        dispatch(setAuthedUser(selection))    
+    }
+      
+    render(){
+        console.log(this.props);
+
+        const { selection } = this.state
         const {users} = this.props
 
         return (
-            <div>
-                <Card className="text-center">
-                    <Card.Header>Welcome to Would You Rather App ...?</Card.Header>
-                        <Card.Body>
-                            <Card.Title>Please Sign in to continue!</Card.Title>
-                            <DropdownButton id="dropdown-basic-button" title="Select User" >
-                                {this.props.userIds.map((id) => (
-                                    <Dropdown.Item key={users[id].id}>{users[id].name}</Dropdown.Item>
-                                ))}
+            <div class="col-xs-1" align="center">
 
-                            </DropdownButton>
+                <Card style={{ width: '40rem' }} className="text-center " bg='light'>
 
+                    <Card.Header>Welcome to <strong>Would You Rather App ... ?</strong></Card.Header>
 
-                            <Button variant="success">Sign In</Button>
-                        </Card.Body>
+                    <Card.Body className="d-grid gap-5">
+                        
+                        <Card.Title>
+                            Please sign in below to continue!
+                        </Card.Title>
+                        
+                        <DropdownButton 
+                            id="dropdown-basic-button" 
+                            title="Select User" 
+                            size="lg"
+                            onSelect={this.handleSelect}
+                        >
+
+                            {this.props.userIds.map((id) => (
+                                <div className="align-items-center">
+                                    <Dropdown.Item 
+                                        key={users[id].id} 
+                                        eventKey={users[id].id}
+                                        size="lg"
+                                    >
+                                        <Row className="align-items-center">
+                                            <Col md='3'>
+                                                <Image src={users[id].avatarURL} roundedCircle thumbnail/>
+                                            </Col>
+                                            <Col>
+                                                {users[id].name}
+                                            </Col>
+                                        </Row>
+                                    </Dropdown.Item>
+                                </div>
+                            ))}
+                        </DropdownButton>
+                        
+                        <Button 
+                            variant="success" 
+                            size="lg"
+                            type='submit'
+                            onClick={this.handleSignIn}
+                            disabled={selection === ''}
+                        >
+                            Sign In
+                        </Button>
+                    
+                    </Card.Body>
+
                 </Card>
             </div>
         )
