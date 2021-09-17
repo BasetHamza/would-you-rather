@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import Question from './Question';
+
 
 class QuestionsList extends Component {
     render() {
 
-        console.log("Filtered Questions are: ", this.props);
         const { questionListIds } = this.props
 
         return (
@@ -14,8 +15,7 @@ class QuestionsList extends Component {
                     {
                         questionListIds.map((questionId) => (
                             <li key={questionId}>
-                                <div>Question ID: {questionId}</div>
-                                {/* <Question id={questionId}/> */}
+                                <Question id={questionId}/>
                             </li>
 
                         ))
@@ -34,7 +34,7 @@ function mapStateToProps( {authedUser, questions}, props ) {
 
     return {
         authedUser,
-        questionListIds: tabID === "answered"
+        questionListIds: (tabID === "answered")
             ? Object.keys(questions)
                 .filter((question) => questions[question].optionOne.votes.includes(authedUser) || questions[question].optionTwo.votes.includes(authedUser))
                 .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
