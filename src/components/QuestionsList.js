@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Question from './Question';
+import QuestionCard from './QuestionCard';
 
 
 class QuestionsList extends Component {
@@ -13,12 +13,11 @@ class QuestionsList extends Component {
             <div>
                 <ul>
                     {
-                        questionListIds.map((questionId) => (
-                            <li key={questionId}>
-                                <Question id={questionId}/>
-                            </li>
-
-                        ))
+                    questionListIds.map((questionId) => (
+                        <li key={questionId}>
+                            <QuestionCard id={questionId}/>
+                        </li>
+                    ))
                     }
                 </ul>
             </div>
