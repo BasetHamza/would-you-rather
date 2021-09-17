@@ -46,8 +46,8 @@ class NavigationBar extends Component{
                                     </Navbar.Collapse>
 
                                     <Button 
-                                        class="btn btn-outline-primary mr-1" 
-                                        variant="danger"
+                                        className="btn btn-outline-primary mr-1" 
+                                        variant="warning"
                                         onClick={this.resetAuthedUser}
                                     >
                                         Logout

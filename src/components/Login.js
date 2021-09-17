@@ -43,7 +43,7 @@ class Login extends Component {
         const { users } = this.props
 
         return (
-            <div class="col-xs-1" align="center">
+            <div className="col-xs-1" align="center">
 
                 <Card style={{ width: '40rem' }} className="text-center " bg='light'>
 
