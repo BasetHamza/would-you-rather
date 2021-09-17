@@ -105,8 +105,8 @@ class Login extends Component {
                             <Dropdown.Divider />
 
                             <Dropdown.Item
-                                key=""
-                                eventKey=""
+                                key="Select User"
+                                eventKey="Select User"
                                 size="lg"
                                 onSelect={this.resetAuthedUser}
                             >

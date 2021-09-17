@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser'
 
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 
 class NavigationBar extends Component{
 
+    resetAuthedUser = () => {
+        const { dispatch } = this.props
+
+        dispatch(setAuthedUser(""))
+    }
+
     render(){
-        console.log(this.props.authedUser)
+        const { users } = this.props
+
         return(
             <div>
                 <Navbar>
@@ -27,19 +35,20 @@ class NavigationBar extends Component{
 
                         {/* Only show the welcome message and the logout 
                             button if we have an authedUser */}
-                            
+
                         {
                             this.props.authedUser !== "" && (
                                 <Navbar.Collapse>
                                     <Navbar.Collapse>
                                         <Navbar.Text>
-                                            Hello, <a href="#login">Mark Otto</a>
+                                            Hello, <strong>{users[this.props.authedUser].name}</strong>
                                         </Navbar.Text>
                                     </Navbar.Collapse>
 
                                     <Button 
                                         class="btn btn-outline-primary mr-1" 
                                         variant="danger"
+                                        onClick={this.resetAuthedUser}
                                     >
                                         Logout
                                     </Button>
@@ -54,9 +63,10 @@ class NavigationBar extends Component{
 }
 
 
-function mapStateToProps ({ authedUser }) {
+function mapStateToProps ({ authedUser, users }) {
     return {
         authedUser,
+        users
     }
 }
 
