@@ -30,6 +30,8 @@ function mapStateToProps( {authedUser, questions}, props ) {
 
     const {tabID} = props.match.params
 
+    // If the passed match prop is answered, we will return the answered questions, otherwise, we return the unanswered questions.
+
     return {
         authedUser,
         questionListIds: tabID === "answered"
