@@ -12,17 +12,27 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap'
  */
 class NavigationBar extends Component{
 
+    state = {
+        logout: false,
+    }
+
     resetAuthedUser = () => {
         const { dispatch } = this.props
 
         dispatch(setAuthedUser(""))
 
-        return <Redirect to='/' />
+        this.setState(() => ({
+            logout: true,
+        }))
     }
 
     render(){
-        
+        const { logout } = this.state
         const { users, tabPath } = this.props
+
+        if (logout) {
+            return <Redirect to='/' />
+        }
 
         return(
             <div>

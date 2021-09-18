@@ -24,7 +24,7 @@ class LeaderBoard extends Component {
                 {
                     rankedUserIDs.map((userID) => (
                         <li key={userID}>
-                            <LeaderBoardUserCard match={{params: {userID}}}/>
+                            <LeaderBoardUserCard userID={userID}/>
                         </li>
                     )) 
                 }

@@ -21,6 +21,7 @@ class Login extends Component {
 
     state = {
         selection: '',
+        loggedIn: false,
     }
     
     updateSelection = (e) => {
@@ -38,9 +39,6 @@ class Login extends Component {
         }))
 
         dispatch(setAuthedUser(""))  
-        
-        return <Redirect to='/' />
-
     }
 
     handleSignIn = (e) => {
@@ -51,12 +49,18 @@ class Login extends Component {
     
         dispatch(setAuthedUser(selection))
 
-        return <Redirect to='/home'/>
+        this.setState(() => ({
+            loggedIn: true,
+        }))
     }
       
     render(){
-        const { selection } = this.state
+        const { selection, loggedIn } = this.state
         const { users } = this.props
+
+        if (loggedIn) {
+            return <Redirect to='/home' />
+        }
 
         return (
             <div className="col-xs-1" align="center">

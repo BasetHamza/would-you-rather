@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { handleInitialData } from '../actions/shared'
 import LoginPage from '../pages/LoginPage'
@@ -22,21 +22,25 @@ class App extends Component {
 
         return (
             <Router>
-                <Fragment>
-                    <LoadingBar />
-                    authedUser === ""
-                    ?   <Route path='/' exact component={LoginPage} />
-                    : {this.props.loading === true
-                        ? null
-                        : <div>
-                            <Route path='/home' exact component={HomePage} />
-                            <Route path='/new' exact component={NewQuestionPage} />
-                            <Route path='/leaderboard' exact component={LeaderBoardPage} />
-                            <Route path='/question/:id' component={QuestionPage} />
-                          </div>}
-                </Fragment>
+                <Switch>
+                    <Fragment>
+                        <LoadingBar />
+                        {this.props.loading === true
+                            ? null
+                            : 
+                                <div>
+                                    <Route path='/' exact component={LoginPage} />
+                                    <Route path='/home' exact component={HomePage} />
+                                    <Route path='/new' exact component={NewQuestionPage} />
+                                    <Route path='/leaderboard' exact component={LeaderBoardPage} />
+                                    <Route path='/question/:id' component={QuestionPage} />
+                                </div>         
+                        }
+                    </Fragment>
+                </Switch>
             </Router>
         )
+
     }
 }
 

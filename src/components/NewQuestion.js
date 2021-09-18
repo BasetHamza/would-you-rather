@@ -19,6 +19,7 @@ class NewQuestion extends Component {
     state = {
         optionOneText: '',
         optionTwoText: '',
+        toHome: false,
     }
 
     handleChange = (e) => {
@@ -41,15 +42,18 @@ class NewQuestion extends Component {
         this.setState(() => ({
             optionOneText: '',
             optionTwoText: '',
+            toHome: true,
+
         }))
-
-        return <Redirect to='/home' />
-
     }
 
     render() {
 
-        const { optionOneText, optionTwoText } = this.state        
+        const { optionOneText, optionTwoText, toHome } = this.state        
+
+        if (toHome === true) {
+            return <Redirect to='/' />
+        }
 
         return (
             <div>

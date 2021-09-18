@@ -44,9 +44,7 @@ class LeaderBoardUserCard extends Component {
     }
 }
 
-function mapStateToProps( { users } , props) {
-
-    const {userID} = props.match.params
+function mapStateToProps( { users } , { userID }) {
     
     return {
         userID,
