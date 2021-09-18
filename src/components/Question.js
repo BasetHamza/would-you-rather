@@ -39,9 +39,9 @@ class Question extends Component {
             const totalVotes = optionOneVotes + optionTwoVotes
             const optionOnePercentage = 100*(optionOneVotes/totalVotes)
             const optionTwoPercentage = 100*(optionTwoVotes/totalVotes)
-            const authedUserChoice = authedUser in question.optionOne.votes ? 'optionOne' : 'optionTwo'
-            const optionOneBorder = ''
-            const optionTwoBorder = ''
+            const authedUserChoice = question.optionOne.votes.includes(authedUser) ? 'optionOne' : 'optionTwo'
+            let optionOneBorder = ''
+            let optionTwoBorder = ''
 
             if (authedUserChoice === 'optionOne'){
                 optionOneBorder = 'primary'
@@ -54,11 +54,11 @@ class Question extends Component {
             return (
                 <div>
                     <Card className="text-center">
-                        <Card.Header>Asked by AUTHOR</Card.Header>
+                        <Card.Header>Asked by {users[author].name}</Card.Header>
                         <Col>
-                            AUTHOR'S IMAGE
+                            <Card.Img variant="left" src={users[author].avatarURL} />
                         </Col>
-                        <Col>
+                        <Row className="justify-content-md-center">
                             <Card.Body>
                                 <Card.Title>Results: </Card.Title>
                                     <Card
@@ -67,11 +67,16 @@ class Question extends Component {
                                         className="mb-2"
                                     >
                                         <Card.Body>
-                                        <Card.Text>
-                                            Would you rather {optionOneText}?
-                                        </Card.Text>
-                                        const progressInstance = <ProgressBar now={optionOnePercentage} label={`${optionOnePercentage}%`} />;
-                                        render(progressInstance);
+                                            <Card.Text>
+                                                Would you rather {optionOneText}?
+                                            </Card.Text>
+                                            <ProgressBar now={optionOnePercentage} />
+                                            <Card.Text>
+                                                {optionOnePercentage}%
+                                            </Card.Text>
+                                            <Card.Text>
+                                                {optionOneVotes} out of {totalVotes} votes
+                                            </Card.Text>
                                         </Card.Body>
                                     </Card>
                                     <br />
@@ -84,12 +89,17 @@ class Question extends Component {
                                         <Card.Text>
                                             Would you rather {optionTwoText}?
                                         </Card.Text>
-                                        const progressInstance = <ProgressBar now={optionTwoPercentage} label={`${optionTwoPercentage}%`} />;
-                                        render(progressInstance);
+                                        <ProgressBar now={optionTwoPercentage} />
+                                        <Card.Text>
+                                            {optionTwoPercentage}%
+                                        </Card.Text>
+                                        <Card.Text>
+                                            {optionTwoVotes} out of {totalVotes} votes
+                                        </Card.Text>
                                         </Card.Body>
                                     </Card>
                             </Card.Body>
-                        </Col>
+                        </Row>
                     </Card>
                 </div>
             )
@@ -103,8 +113,9 @@ class Question extends Component {
     }
 }
 
-function mapStateToProps ({ authedUser, users, questions }, { id }) {
+function mapStateToProps ({ authedUser, users, questions }, props) {
 
+    const {id}  = props.match.params
     const question = questions[id]
 
     return {
@@ -113,7 +124,7 @@ function mapStateToProps ({ authedUser, users, questions }, { id }) {
         users,
         question: question
             ? question
-            : null,
+            : null
     }
 }
 

@@ -51,7 +51,7 @@ class Login extends Component {
     
         dispatch(setAuthedUser(selection))
 
-        return <Redirect to='/home' />
+        return <Redirect to='/home'/>
     }
       
     render(){

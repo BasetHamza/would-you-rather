@@ -31,13 +31,13 @@ class NavigationBar extends Component{
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav variant="pills" defaultActiveKey={tabPath}>
                                 <Nav.Item>
-                                    <Nav.Link key='/home'><NavLink to='/home' exact activeClassName='active'>Home</NavLink></Nav.Link>
+                                    <Button variant='light' key='/home'><NavLink to='/home' exact activeClassName='active'>Home</NavLink></Button>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link key='/new'><NavLink to='/new' exact activeClassName='active'>New Question</NavLink></Nav.Link>
+                                    <Button variant='light' key='/new'><NavLink to='/new' exact activeClassName='active'>New Question</NavLink></Button>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link key='/leaderboard'><NavLink to='/leaderboard' exact activeClassName='active'>Leader Board</NavLink></Nav.Link>
+                                    <Button variant='light' key='/leaderboard'><NavLink to='/leaderboard' exact activeClassName='active'>Leader Board</NavLink></Button>
                                 </Nav.Item>
                             </Nav>
                         </Navbar.Collapse>

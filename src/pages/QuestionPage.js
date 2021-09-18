@@ -7,23 +7,15 @@ import Question from '../components/Question'
 class QuestionPage extends Component{
     render(){
 
-        const {id} = this.props
+        const { id } = this.props.match.params
 
         return(
             <div>
                 <NavigationBar />
-                <Question match={{params: {id: {id}}}}/>
+                <Question match={{params: {id: id}}}/>
             </div>
         )
     }
 }
 
-function mapStateToProps ( {} ,props ) {
-  const { id } = props.match.params
-
-  return {
-    id,
-  }
-}
-
-export default connect(mapStateToProps)(QuestionPage)
+export default connect()(QuestionPage)

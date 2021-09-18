@@ -14,12 +14,14 @@ class LeaderBoardUserCard extends Component {
 
         const { users , userID } = this.props
 
+        console.log(this.props);
+
         return (
             <div style={{display: 'flex', justifyContent: 'center'}}>
                 <Card className="text-center" style={{ width: '50rem' }}>
                     <Card.Body>
                             <Row>
-                                <Col xs={6} md={4}><Card.Img roundedCircle variant="left" src={users[userID].avatarURL} /></Col>
+                                <Col xs={6} md={4}><Card.Img variant="left" src={users[userID].avatarURL} /></Col>
                                     <Col>
 
                                         <Card.Title>{users[userID].name}</Card.Title>
@@ -45,7 +47,7 @@ class LeaderBoardUserCard extends Component {
 function mapStateToProps( { users } , props) {
 
     const {userID} = props.match.params
-
+    
     return {
         userID,
         users,

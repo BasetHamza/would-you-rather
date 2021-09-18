@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import NavigationBar from '../components/NavigationBar'
 import LeaderBoardUserCard from './LeaderBoardUserCard';
 
 /**
@@ -15,7 +14,7 @@ import LeaderBoardUserCard from './LeaderBoardUserCard';
 class LeaderBoard extends Component {
     render(){
 
-        const { users, rankedUserIDs } = this.props
+        const { rankedUserIDs } = this.props
 
         console.log(this.props);
 
@@ -24,7 +23,9 @@ class LeaderBoard extends Component {
                 <ul>
                 {
                     rankedUserIDs.map((userID) => (
-                        <LeaderBoardUserCard match={{params: {userID}}}/>
+                        <li key={userID}>
+                            <LeaderBoardUserCard match={{params: {userID}}}/>
+                        </li>
                     )) 
                 }
                 </ul>
@@ -34,14 +35,11 @@ class LeaderBoard extends Component {
 }
 
 function mapStateToProps( { users } ) {
-
     return {
-        users,
         rankedUserIDs: Object.keys(users)
                 .sort((a,b) => (users[b].questions.length + Object.keys(users[b].answers).length) 
                     - (users[a].questions.length + Object.keys(users[a].answers).length))
     }
 }
-
 
 export default connect(mapStateToProps)(LeaderBoard)

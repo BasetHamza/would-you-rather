@@ -30,7 +30,6 @@ class NewQuestion extends Component {
         }));
     }
 
-
     handleSubmit = (e) => {
         e.preventDefault()
     

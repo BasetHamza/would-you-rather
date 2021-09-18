@@ -17,14 +17,18 @@ class App extends Component {
     }
 
     render () {
+
+        const { authedUser } = this.props
+
         return (
             <Router>
                 <Fragment>
                     <LoadingBar />
-                    {this.props.loading === true
+                    authedUser === ""
+                    ?   <Route path='/' exact component={LoginPage} />
+                    : {this.props.loading === true
                         ? null
                         : <div>
-                            <Route path='/' exact component={LoginPage} />
                             <Route path='/home' exact component={HomePage} />
                             <Route path='/new' exact component={NewQuestionPage} />
                             <Route path='/leaderboard' exact component={LeaderBoardPage} />
@@ -36,4 +40,11 @@ class App extends Component {
     }
 }
 
-export default connect()(App)
+function mapStateToProps ({ authedUser}) {
+
+    return {
+        authedUser,
+    }
+}
+
+export default connect(mapStateToProps)(App)
