@@ -5,7 +5,7 @@ import LoadingBar from 'react-redux-loading'
 import { handleInitialData } from '../actions/shared'
 import LoginPage from '../pages/LoginPage'
 import HomePage from '../pages/HomePage'
-import NewQuestion from './NewQuestion'
+import NewQuestionPage from '../pages/NewQuestionPage'
 
 class App extends Component {
 
@@ -16,7 +16,7 @@ class App extends Component {
     render () {
         return (
             <div>
-                <NewQuestion />
+                <NewQuestionPage />
             </div>
         )
     }

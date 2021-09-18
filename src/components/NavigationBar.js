@@ -13,22 +13,25 @@ class NavigationBar extends Component{
     }
 
     render(){
-        const { users } = this.props
+        
+        const { users, tabPath } = this.props
+
+console.log(tabPath);
 
         return(
             <div>
-                <Navbar>
+                <Navbar bg="primary" variant="dark">
                     <Container>
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav variant="pills" defaultActiveKey="/home">
+                            <Nav variant="pills" defaultActiveKey={tabPath}>
                                 <Nav.Item>
                                     <Nav.Link href="/home">Home</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="link-1">New Question</Nav.Link>
+                                    <Nav.Link eventKey="/new">New Question</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="link-2">Leader Board</Nav.Link>
+                                    <Nav.Link eventKey="/leaderboard">Leader Board</Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </Navbar.Collapse>
@@ -63,10 +66,14 @@ class NavigationBar extends Component{
 }
 
 
-function mapStateToProps ({ authedUser, users }) {
+function mapStateToProps ({ authedUser, users }, props) {
+    
+    const {tabPath} = props.match.params
+
     return {
         authedUser,
-        users
+        users,
+        tabPath,
     }
 }
 

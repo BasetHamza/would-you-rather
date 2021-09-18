@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/questions'
 import { Redirect } from 'react-router-dom'
 
-import { Card, Button, Col, Row } from 'react-bootstrap'
+import { Card, Button, Row, Form } from 'react-bootstrap'
 
 // This component has relied on the post:
 // https://www.pluralsight.com/guides/handling-multiple-inputs-with-single-onchange-handler-react
@@ -16,12 +16,14 @@ class NewQuestion extends Component {
         optionTwo: '',
     }
 
-    handleChange(e) {
+    handleChange = (e) => {
         const value = e.target.value;
-        this.setState({
+
+        console.log(value);
+        this.setState(() => ({
             ...this.state,
             [e.target.name]: value
-        });
+        }));
     }
 
 
@@ -29,10 +31,10 @@ class NewQuestion extends Component {
         e.preventDefault()
     
         const { optionOne, optionTwo } = this.state
+        const { dispatch, id } = this.props
+
+        dispatch(handleAddQuestion(optionOne,optionOne))
     
-        // TODO: Add question to the store.
-    
-        console.log('New Question : ', optionOne, ' or ', optionTwo);
         this.setState(() => ({
             optionOne: '',
             optionTwo: '',
@@ -40,18 +42,66 @@ class NewQuestion extends Component {
     }
 
     render() {
+
+        const { optionOne, optionTwo } = this.state
+
+        {
+            // todo: redirect to / if submitted. 
+        }
+
         return (
             <div>
-                <Card className="text-center">
-                <Card.Header >Create New Question</Card.Header>
-                <Card.Body>
-                    <Card.Title>Special title treatment</Card.Title>
-                    <Card.Text>
-                    With supporting text below as a natural lead-in to additional content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-                </Card>
+                <Row className="justify-content-md-center">
+                    <Card className="text-center" style={{ width: '50rem' }} >
+                        <Card.Header ><h3>Create New Question</h3></Card.Header>
+                    
+                        <Card.Body>
+                            <Form onSubmit={this.handleSubmit}>
+                    
+                                <Card.Text className="text-md-right">
+                                    Complete the question.
+                                </Card.Text>
+                    
+                                <Card.Text >
+                                    <h4>Would you rather ...</h4>
+                                </Card.Text>
+                    
+                                <Form.Control
+                                    className="mb-3" 
+                                    name="optionOne" 
+                                    as='textarea'
+                                    type="text" 
+                                    placeholder="Enter Option One Text Here" 
+                                    value={optionOne}
+                                    onChange={this.handleChange}
+                                />
+                    
+                                <Card.Text >
+                                    <h5>-OR-</h5>
+                                </Card.Text>
+                    
+                                <Form.Control 
+                                    className="mb-3" 
+                                    name="optionTwo"
+                                    as='textarea'
+                                    type="text" 
+                                    placeholder="Enter Option Two Text Here" 
+                                    value={optionTwo}
+                                    onChange={this.handleChange}
+                                />                    
+                    
+                                <Button 
+                                    variant="primary"
+                                    type='submit' 
+                                    disabled={optionOne === '' || optionTwo === ''}
+                                >
+                                    Submit New Question
+                                </Button>
+                    
+                            </Form>
+                        </Card.Body>
+                    </Card>
+                </Row>
             </div>
         )
     }

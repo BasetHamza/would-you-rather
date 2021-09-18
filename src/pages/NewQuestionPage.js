@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import NavigationBar from '../components/NavigationBar'
+import NewQuestion from '../components/NewQuestion'
 
-class NewQuestion extends Component{
+class NewQuestionPage extends Component{
     render(){
         return(
             <div>
-                <NavigationBar />
+                <NavigationBar match={{params: {tabPath: '/new'}}}/>
+                <NewQuestion />
             </div>
         )
     }
 }
 
-export default NewQuestion
+export default NewQuestionPage

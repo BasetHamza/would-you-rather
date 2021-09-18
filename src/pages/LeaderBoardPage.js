@@ -5,7 +5,7 @@ class LeaderBoardPage extends Component{
     render(){
         return(
             <div>
-                <NavigationBar />
+                <NavigationBar match={{params: {tabPath: '/leaderboard'}}}/>
             </div>
         )
     }

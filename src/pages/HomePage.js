@@ -10,7 +10,7 @@ class HomePage extends Component {
     render() {
         return(
             <div>
-                <NavigationBar />
+                <NavigationBar match={{params: {tabPath: '/home'}}}/>
                 <Container>
                     <Card bg='light'
 >
