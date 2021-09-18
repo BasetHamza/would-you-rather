@@ -29,7 +29,7 @@ class Question extends Component {
          * answered, then we render a card that takes input from the user.
          */
         
-        if ( id in users[authedUser].answers ){
+        if (id in users[authedUser].answers ){
 
             const { author } = question
             const optionOneText = question.optionOne.text
@@ -106,7 +106,7 @@ class Question extends Component {
         } else {
             return (
                 <div>
-                    VOTE NOW
+                    
                 </div>
             )
         }
