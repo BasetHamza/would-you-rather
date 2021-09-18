@@ -6,7 +6,7 @@ import { setAuthedUser } from '../actions/authedUser'
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 // TODO: Remove the hardcoded user before submission
-// const AUTHED_ID = "sarahedo"
+const AUTHED_ID = "sarahedo"
 
 
 export function handleInitialData() {
@@ -18,7 +18,7 @@ export function handleInitialData() {
             .then(( {users, questions} ) => {
                 dispatch(receiveQuestions(questions))
                 dispatch(receiveUsers(users))
-                dispatch(setAuthedUser("")) 
+                dispatch(setAuthedUser(AUTHED_ID)) 
                 // TODO: Replace the hardcoded user with ""
                 dispatch(hideLoading())
             })

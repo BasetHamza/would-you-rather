@@ -16,8 +16,6 @@ class NavigationBar extends Component{
         
         const { users, tabPath } = this.props
 
-console.log(tabPath);
-
         return(
             <div>
                 <Navbar bg="primary" variant="dark">

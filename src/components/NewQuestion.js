@@ -12,14 +12,13 @@ import { Card, Button, Row, Form } from 'react-bootstrap'
 class NewQuestion extends Component {
 
     state = {
-        optionOne: '',
-        optionTwo: '',
+        optionOneText: '',
+        optionTwoText: '',
     }
 
     handleChange = (e) => {
         const value = e.target.value;
 
-        console.log(value);
         this.setState(() => ({
             ...this.state,
             [e.target.name]: value
@@ -30,24 +29,24 @@ class NewQuestion extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
     
-        const { optionOne, optionTwo } = this.state
-        const { dispatch, id } = this.props
+        const { optionOneText, optionTwoText } = this.state
+        const { dispatch } = this.props
 
-        dispatch(handleAddQuestion(optionOne,optionOne))
+        dispatch(handleAddQuestion(optionOneText,optionTwoText))
     
         this.setState(() => ({
-            optionOne: '',
-            optionTwo: '',
+            optionOneText: '',
+            optionTwoText: '',
         }))
     }
 
     render() {
 
-        const { optionOne, optionTwo } = this.state
+        const { optionOneText, optionTwoText } = this.state
 
-        {
-            // todo: redirect to / if submitted. 
-        }
+        
+        // todo: redirect to / if submitted. 
+        
 
         return (
             <div>
@@ -58,42 +57,42 @@ class NewQuestion extends Component {
                         <Card.Body>
                             <Form onSubmit={this.handleSubmit}>
                     
-                                <Card.Text className="text-md-right">
+                                <Card.Text>
                                     Complete the question.
                                 </Card.Text>
                     
-                                <Card.Text >
-                                    <h4>Would you rather ...</h4>
+                                <Card.Text>
+                                    Would you rather ...
                                 </Card.Text>
                     
                                 <Form.Control
                                     className="mb-3" 
-                                    name="optionOne" 
+                                    name="optionOneText" 
                                     as='textarea'
                                     type="text" 
                                     placeholder="Enter Option One Text Here" 
-                                    value={optionOne}
+                                    value={optionOneText}
                                     onChange={this.handleChange}
                                 />
                     
-                                <Card.Text >
-                                    <h5>-OR-</h5>
+                                <Card.Text className="font-weight-bold">
+                                    -OR-
                                 </Card.Text>
                     
                                 <Form.Control 
                                     className="mb-3" 
-                                    name="optionTwo"
+                                    name="optionTwoText"
                                     as='textarea'
                                     type="text" 
                                     placeholder="Enter Option Two Text Here" 
-                                    value={optionTwo}
+                                    value={optionTwoText}
                                     onChange={this.handleChange}
                                 />                    
                     
                                 <Button 
                                     variant="primary"
                                     type='submit' 
-                                    disabled={optionOne === '' || optionTwo === ''}
+                                    disabled={optionOneText === '' || optionTwoText === ''}
                                 >
                                     Submit New Question
                                 </Button>
