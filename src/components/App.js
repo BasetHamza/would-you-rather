@@ -6,6 +6,7 @@ import { handleInitialData } from '../actions/shared'
 import LoginPage from '../pages/LoginPage'
 import HomePage from '../pages/HomePage'
 import NewQuestionPage from '../pages/NewQuestionPage'
+import LeaderBoardPage from '../pages/LeaderBoardPage'
 
 class App extends Component {
 
@@ -16,7 +17,7 @@ class App extends Component {
     render () {
         return (
             <div>
-                <NewQuestionPage />
+                <LeaderBoardPage />
             </div>
         )
     }
