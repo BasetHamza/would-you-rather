@@ -3,6 +3,13 @@ import { connect } from 'react-redux'
 
 import QuestionCard from './QuestionCard';
 
+/**
+ * This component renders the "Answered" and "Unanswered" question lists.
+ * 
+ * The component depends on the authedUser and the tab the user has selected
+ * to render the corresponding list. The componenet also uses the QuestionCard
+ * component to list the cards of the questions.
+ */
 
 class QuestionsList extends Component {
     render() {

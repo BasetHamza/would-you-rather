@@ -6,6 +6,16 @@ import Card from 'react-bootstrap/Card'
 import { Button, Dropdown, DropdownButton, Image, Col, Row} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css' 
 
+
+/**
+ * This componenet renders the Login form of the LoginPage component.
+ * 
+ * It allows the user to choose the name from a drop-down menue. Each user 
+ * is represented by an avatar and name. It also has a reset choice to remove
+ * a chosen user. Once the user is selected, it will activate the Log In button
+ * which will then direct the user to the router to use the application and view
+ * the different tabs.
+ */
 class Login extends Component {
 
     state = {

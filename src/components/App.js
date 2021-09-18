@@ -17,7 +17,7 @@ class App extends Component {
     render () {
         return (
             <div>
-                <LeaderBoardPage />
+                <HomePage />
             </div>
         )
     }

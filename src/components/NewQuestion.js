@@ -5,9 +5,14 @@ import { Redirect } from 'react-router-dom'
 
 import { Card, Button, Row, Form } from 'react-bootstrap'
 
-// This component has relied on the post:
-// https://www.pluralsight.com/guides/handling-multiple-inputs-with-single-onchange-handler-react
-
+/**
+ * This component renders the new question form used by the user to ask a question.
+ * 
+ * This component has used the following post to learn how to handle multiple inputs using the
+ * same onChange function:
+ * https://www.pluralsight.com/guides/handling-multiple-inputs-with-single-onchange-handler-react
+ * 
+ */
 
 class NewQuestion extends Component {
 

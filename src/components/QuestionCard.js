@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 
 import { Card, Button, Col, Row, Alert } from 'react-bootstrap'
 
-// A component that will render a question card to be displayed under the answered or unanswered Questions
+/**
+ * A component that will render a question card to be displayed under the answered or unanswered 
+ * question lists
+ */
 
 class QuestionCard extends Component {
     render() {        

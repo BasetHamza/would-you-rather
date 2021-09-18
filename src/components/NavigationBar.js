@@ -4,6 +4,10 @@ import { setAuthedUser } from '../actions/authedUser'
 
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 
+/**
+ * This componenet render the navigation bar which sits at the top of each Page
+ * component in the ../pages directory.
+ */
 class NavigationBar extends Component{
 
     resetAuthedUser = () => {

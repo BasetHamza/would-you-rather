@@ -4,7 +4,9 @@ import { connect } from 'react-redux'
 import { Card, Button, Col, Row, CardColumns } from 'react-bootstrap'
 
 /**
- * This component renders the user card in the leader board page.
+ * This component renders the user's card in the leader board page.
+ * 
+ * It serves the LeaderBoard componenet.
  */
 
 class LeaderBoardUserCard extends Component {

@@ -12,8 +12,7 @@ class HomePage extends Component {
             <div>
                 <NavigationBar match={{params: {tabPath: '/home'}}}/>
                 <Container>
-                    <Card bg='light'
->
+                    <Card bg='light'>
                         <Card.Body>
                             <Tabs variant="pills" defaultActiveKey="unanswered" id="uncontrolled-tab-example" className="mb-5" fill >
                                 <Tab eventKey="unanswered" title="Unanswered Questions">
