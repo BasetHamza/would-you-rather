@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import { NavLink } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 
@@ -14,6 +16,8 @@ class NavigationBar extends Component{
         const { dispatch } = this.props
 
         dispatch(setAuthedUser(""))
+
+        return <Redirect to='/' />
     }
 
     render(){
@@ -22,18 +26,18 @@ class NavigationBar extends Component{
 
         return(
             <div>
-                <Navbar bg="primary" variant="dark">
+                <Navbar bg="light" variant="primary">
                     <Container>
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav variant="pills" defaultActiveKey={tabPath}>
                                 <Nav.Item>
-                                    <Nav.Link href="/home">Home</Nav.Link>
+                                    <Nav.Link key='/home'><NavLink to='/home' exact activeClassName='active'>Home</NavLink></Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="/new">New Question</Nav.Link>
+                                    <Nav.Link key='/new'><NavLink to='/new' exact activeClassName='active'>New Question</NavLink></Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="/leaderboard">Leader Board</Nav.Link>
+                                    <Nav.Link key='/leaderboard'><NavLink to='/leaderboard' exact activeClassName='active'>Leader Board</NavLink></Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </Navbar.Collapse>
@@ -69,8 +73,10 @@ class NavigationBar extends Component{
 
 
 function mapStateToProps ({ authedUser, users }, props) {
-    
-    const {tabPath} = props.match.params
+
+    const {tabPath} = props && Object.keys(props).length === 0 && props.constructor === Object
+    ? ""
+    : props.match.params
 
     return {
         authedUser,

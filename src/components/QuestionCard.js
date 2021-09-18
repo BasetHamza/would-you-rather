@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { Link, withRouter } from 'react-router-dom'
+
 import { Card, Button, Col, Row, Alert } from 'react-bootstrap'
 
 /**
@@ -9,8 +11,15 @@ import { Card, Button, Col, Row, Alert } from 'react-bootstrap'
  */
 
 class QuestionCard extends Component {
+
+    toQuestion = (e, id) => {
+        e.preventDefault()
+        
+        this.props.history.push(`/question/${id}`)
+    }
+
     render() {        
-        const { question, users } = this.props
+        const { question, users, id} = this.props
 
         if (question === null) {
             return (
@@ -27,9 +36,11 @@ class QuestionCard extends Component {
             <div>
                 <Card style={{ width: '50rem' }}>
                 <Row className="justify-content-md-center">
+                    {/* <Card.Header>USER_NAME asks:</Card.Header> */}
                     <Card.Header>{users[author].name} asks:</Card.Header>
                         <Col xs lg="2">
                             <Card.Img variant="left" src={users[author].avatarURL} />
+                            {/* <Card.Img variant="left" src="" /> */}
                         </Col>
                         <Col >
                             <Card.Body>
@@ -37,7 +48,12 @@ class QuestionCard extends Component {
                                     <Card.Text>
                                         ...{optionOneText}...
                                     </Card.Text>
-                                <Button variant="primary">View Poll</Button>
+                                <Button 
+                                    variant="primary"
+                                    onClick={(e) => this.toQuestion(e, id)}
+                                >
+                                    View Poll
+                                </Button>
                             </Card.Body>
                         </Col>
                     </Row>
@@ -58,4 +74,4 @@ function mapStateToProps ({ authedUser, users, questions }, { id }) {
     }
 }
 
-export default connect(mapStateToProps)(QuestionCard)
+export default withRouter(connect(mapStateToProps)(QuestionCard))

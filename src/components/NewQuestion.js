@@ -43,15 +43,14 @@ class NewQuestion extends Component {
             optionOneText: '',
             optionTwoText: '',
         }))
+
+        return <Redirect to='/home' />
+
     }
 
     render() {
 
-        const { optionOneText, optionTwoText } = this.state
-
-        
-        // todo: redirect to / if submitted. 
-        
+        const { optionOneText, optionTwoText } = this.state        
 
         return (
             <div>

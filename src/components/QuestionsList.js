@@ -21,7 +21,7 @@ class QuestionsList extends Component {
                 <ul>
                     {
                     questionListIds.map((questionId) => (
-                        <li key={questionId}>
+                        <li key={questionId} >
                             <QuestionCard id={questionId}/>
                         </li>
                     ))

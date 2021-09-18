@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import { Redirect } from 'react-router-dom'
 
 import Card from 'react-bootstrap/Card'
 import { Button, Dropdown, DropdownButton, Image, Col, Row} from 'react-bootstrap'
@@ -36,7 +37,10 @@ class Login extends Component {
             selection: ""
         }))
 
-        dispatch(setAuthedUser(""))    
+        dispatch(setAuthedUser(""))  
+        
+        return <Redirect to='/' />
+
     }
 
     handleSignIn = (e) => {
@@ -45,7 +49,9 @@ class Login extends Component {
         const { selection } = this.state
         const { dispatch } = this.props
     
-        dispatch(setAuthedUser(selection))    
+        dispatch(setAuthedUser(selection))
+
+        return <Redirect to='/home' />
     }
       
     render(){
