@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import { Alert } from 'react-bootstrap'
+
 import QuestionCard from './QuestionCard';
 
 /**
@@ -14,21 +16,40 @@ import QuestionCard from './QuestionCard';
 class QuestionsList extends Component {
     render() {
 
-        const { questionListIds } = this.props
+        const { questionListIds, tabID } = this.props
 
-        return (
-            <div>
-                <ul>
-                    {
-                    questionListIds.map((questionId) => (
-                        <li key={questionId} >
-                            <QuestionCard id={questionId}/>
-                        </li>
-                    ))
-                    }
-                </ul>
-            </div>
-        )
+        if (questionListIds.length === 0){        
+            if (tabID === 'answered'){
+                return (
+                    <Alert key='questionNotFound' variant='warning'>
+                        Ops! You do not have answered questions. Check the un answered 
+                        question tab or consider creating your own question in the "New Question"
+                        tab.
+                    </Alert>
+                )
+            } else {
+                return (
+                    <Alert key='questionNotFound' variant='success'>
+                        Excellent work! You do not have any unanswered questions.
+                    </Alert>
+                )
+            }
+        }
+        else {
+            return (
+                <div>
+                    <ul>
+                        {
+                        questionListIds.map((questionId) => (
+                            <li key={questionId} >
+                                <QuestionCard id={questionId}/>
+                            </li>
+                        ))
+                        }
+                    </ul>
+                </div>
+            )
+        }
     }
 }
 
@@ -40,6 +61,7 @@ function mapStateToProps( {authedUser, questions}, props ) {
 
     return {
         authedUser,
+        tabID,
         questionListIds: (tabID === "answered")
             ? Object.keys(questions)
                 .filter((question) => questions[question].optionOne.votes.includes(authedUser) || questions[question].optionTwo.votes.includes(authedUser))

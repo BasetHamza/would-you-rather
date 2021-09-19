@@ -9,7 +9,6 @@ class ProtectedRoute extends Component {
     const { component: Component, exact, path } = this.props
     
     if (authedUser !== "") {
-      console.log("Protected Route Props:", this.props.computedMatch.params)
       return (
         <Route
           exact={exact}

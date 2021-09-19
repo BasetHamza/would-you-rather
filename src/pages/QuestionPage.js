@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import NavigationBar from '../components/NavigationBar'
-import { connect } from 'react-redux'
 
 import Question from '../components/Question'
 
@@ -18,12 +17,4 @@ class QuestionPage extends Component{
     }
 }
 
-// function mapStateToProps (props) {
-//   const { id } = this.props
-//   console.log("ID in QUestion Page:", id)
-//   return {
-//     id,
-//   }
-// }
-
-export default connect()(QuestionPage)
+export default QuestionPage
