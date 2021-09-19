@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
-// import { setQuestionAnswer } from '../actions/questions'
+import { handleAddAnswer } from '../actions/shared'
 
 import { Card, Button, Col, Row, Alert, ProgressBar, Form , InputGroup, FormControl} 
     from 'react-bootstrap'
@@ -16,6 +17,7 @@ class Question extends Component {
 
     state = {
         answer: '',
+        toHome: false,
     }
 
     handleChange = (e) => {
@@ -28,14 +30,22 @@ class Question extends Component {
         e.preventDefault()
 
         const { answer } = this.state
-        const { dispatch, id, authedUser } = this.props
+        const { dispatch, id } = this.props
 
-        // dispatch(setQuestionAnswer(authedUser, id, answer))
+        dispatch(handleAddAnswer(id, answer))
+
+        this.setState(() => ({
+            toHome: true,
+        }))
     }
 
     render() {        
         
-        const { question, authedUser, users, id} = this.props
+        const { question, authedUser, users, id, toHome} = this.props
+
+        if (toHome === true) {
+            return <Redirect to='/' />
+        }
 
         if (question === null){
             return (
@@ -62,8 +72,8 @@ class Question extends Component {
             const optionOneVotes = question.optionOne.votes.length
             const optionTwoVotes = question.optionTwo.votes.length
             const totalVotes = optionOneVotes + optionTwoVotes
-            const optionOnePercentage = 100*(optionOneVotes/totalVotes)
-            const optionTwoPercentage = 100*(optionTwoVotes/totalVotes)
+            const optionOnePercentage = 100*(optionOneVotes/totalVotes).toFixed(2)
+            const optionTwoPercentage = 100*(optionTwoVotes/totalVotes).toFixed(2)
             const authedUserChoice = question.optionOne.votes.includes(authedUser) ? 'optionOne' : 'optionTwo'
             let optionOneBorder = ''
             let optionTwoBorder = ''
