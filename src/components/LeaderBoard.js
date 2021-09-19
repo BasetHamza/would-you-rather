@@ -16,8 +16,6 @@ class LeaderBoard extends Component {
 
         const { rankedUserIDs } = this.props
 
-        console.log(this.props);
-
         return(
             <div>
                 <ul>

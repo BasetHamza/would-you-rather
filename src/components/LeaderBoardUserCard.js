@@ -14,8 +14,6 @@ class LeaderBoardUserCard extends Component {
 
         const { users , userID } = this.props
 
-        console.log(this.props);
-
         return (
             <div style={{display: 'flex', justifyContent: 'center'}}>
                 <Card className="text-center" style={{ width: '50rem' }}>
