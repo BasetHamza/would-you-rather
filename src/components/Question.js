@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+// import { setQuestionAnswer } from '../actions/questions'
+
 import { Card, Button, Col, Row, Alert, ProgressBar, Form , InputGroup, FormControl} 
     from 'react-bootstrap'
 
@@ -13,18 +15,22 @@ import { Card, Button, Col, Row, Alert, ProgressBar, Form , InputGroup, FormCont
 class Question extends Component {
 
     state = {
-        selection: '',
+        answer: '',
     }
 
     handleChange = (e) => {
-        console.log(e.target.id)
         this.setState(() => ({
-            selection: e.target.id
+            answer: e.target.id
         }))
     }
 
     handleSubmit = (e) => {
-        console.log(e.target.id)
+        e.preventDefault()
+
+        const { answer } = this.state
+        const { dispatch, id, authedUser } = this.props
+
+        // dispatch(setQuestionAnswer(authedUser, id, answer))
     }
 
     render() {        
@@ -158,7 +164,7 @@ class Question extends Component {
                                     <Button 
                                         variant="primary"
                                         type='submit' 
-                                        disabled={this.state.selection === ''}
+                                        disabled={this.state.answer === ''}
                                     >
                                         Submit Answer
                                     </Button>

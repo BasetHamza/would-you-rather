@@ -1,7 +1,7 @@
 import { getInitialData, saveQuestion } from '../utils/api'
 
-import { receiveQuestions, addQuestionQuestionsComponent } from '../actions/questions'
-import { receiveUsers, addQuestionUserComponent } from '../actions/users'
+import { receiveQuestions } from '../actions/questions'
+import { receiveUsers } from '../actions/users'
 import { setAuthedUser } from '../actions/authedUser'
 
 import { showLoading, hideLoading } from 'react-redux-loading'
@@ -9,6 +9,15 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 // TODO: Remove the hardcoded user before submission
 // const AUTHED_ID = "sarahedo"
 // const AUTHED_ID = "tylermcginnis"
+export const ADD_QUESTION = 'ADD_QUESTION'
+
+
+export function addQuestion(question) {
+    return {
+        type: ADD_QUESTION,
+        question,
+    }
+}
 
 export function handleAddQuestion ( optionOneText, optionTwoText ) {
     return (dispatch, getState) => {
@@ -23,8 +32,7 @@ export function handleAddQuestion ( optionOneText, optionTwoText ) {
         })
             .then(
                 (question) => {
-                    dispatch(addQuestionQuestionsComponent(question))
-                    // dispatch(addQuestionUserComponent(question))
+                    dispatch(addQuestion(question))
                 }
             )
             .then(() => dispatch(hideLoading()))
