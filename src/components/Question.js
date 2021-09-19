@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 
 import { handleAddAnswer } from '../actions/shared'
 
-import { Card, Button, Col, Row, Alert, ProgressBar, Form , InputGroup, FormControl} 
+import { Card, Button, Col, Row, Alert, ProgressBar, Form } 
     from 'react-bootstrap'
 
 /*

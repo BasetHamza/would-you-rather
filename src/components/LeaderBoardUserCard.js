@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Card, Button, Col, Row, CardColumns } from 'react-bootstrap'
+import { Card, Col, Row } from 'react-bootstrap'
 
 /**
  * This component renders the user's card in the leader board page.

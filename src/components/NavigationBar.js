@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
-import { NavLink, Redirect, withRouter } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 
