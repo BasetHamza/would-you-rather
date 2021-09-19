@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
-import { NavLink } from 'react-router-dom'
-import { Redirect } from 'react-router-dom'
+import { NavLink, Redirect, withRouter } from 'react-router-dom'
 
 import { Navbar, Container, Nav, Button } from 'react-bootstrap'
 
@@ -31,7 +30,7 @@ class NavigationBar extends Component{
         const { users, tabPath } = this.props
 
         if (logout) {
-            return <Redirect to='/' />
+            this.props.history.push('/login')
         }
 
         return(
@@ -41,7 +40,7 @@ class NavigationBar extends Component{
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav variant="pills" defaultActiveKey={tabPath}>
                                 <Nav.Item>
-                                    <Button variant='light' key='/home'><NavLink to='/home' exact activeClassName='active'>Home</NavLink></Button>
+                                    <Button variant='light' key='/'><NavLink to='/' exact activeClassName='active'>Home</NavLink></Button>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Button variant='light' key='/new'><NavLink to='/new' exact activeClassName='active'>New Question</NavLink></Button>
@@ -95,4 +94,4 @@ function mapStateToProps ({ authedUser, users }, props) {
     }
 }
 
-export default connect(mapStateToProps)(NavigationBar)
+export default withRouter(connect(mapStateToProps)(NavigationBar))

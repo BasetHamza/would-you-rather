@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
-import { Redirect } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 
 import Card from 'react-bootstrap/Card'
 import { Button, Dropdown, DropdownButton, Image, Col, Row} from 'react-bootstrap'
@@ -21,7 +21,7 @@ class Login extends Component {
 
     state = {
         selection: '',
-        loggedIn: false,
+        isLoggedIn: false,
     }
     
     updateSelection = (e) => {
@@ -50,16 +50,20 @@ class Login extends Component {
         dispatch(setAuthedUser(selection))
 
         this.setState(() => ({
-            loggedIn: true,
+            isLoggedIn: true,
         }))
     }
       
     render(){
-        const { selection, loggedIn } = this.state
+        const { selection, isLoggedIn } = this.state
         const { users } = this.props
+        const { from } = this.props.location.state || { from: { pathname: '/' } }
 
-        if (loggedIn) {
-            return <Redirect to='/home' />
+        // console.log(isLoggedIn);
+
+        if (isLoggedIn === true) {
+            console.log(from.pathname);
+            return <Redirect to={from.pathname}/>
         }
 
         return (
@@ -162,4 +166,4 @@ function mapStateToProps ({ users }) {
     }
 }
 
-export default connect(mapStateToProps)(Login)
+export default withRouter(connect(mapStateToProps)(Login))
