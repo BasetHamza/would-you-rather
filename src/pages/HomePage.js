@@ -16,10 +16,10 @@ class HomePage extends Component {
                         <Card.Body>
                             <Tabs variant="pills" defaultActiveKey="unanswered" id="uncontrolled-tab-example" className="mb-5" fill >
                                 <Tab eventKey="unanswered" title="Unanswered Questions">
-                                    <QuestionsList match={{params: {tabID: 'unanswered'}}}/>
+                                    <QuestionsList tabID={'unanswered'}/>
                                 </Tab>
                                 <Tab eventKey="answered" title="Answered Questions">
-                                    <QuestionsList match={{params: {tabID: 'answered'}}}/>
+                                    <QuestionsList tabID={'answered'}/>
                                 </Tab>
                             </Tabs>
                         </Card.Body>

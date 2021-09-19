@@ -7,7 +7,7 @@ import Question from '../components/Question'
 class QuestionPage extends Component{
     render(){
 
-        const { id } = this.props.match.params
+        const { id } = this.props.computedMatch.params
 
         return(
             <div>
@@ -17,5 +17,13 @@ class QuestionPage extends Component{
         )
     }
 }
+
+// function mapStateToProps (props) {
+//   const { id } = this.props
+//   console.log("ID in QUestion Page:", id)
+//   return {
+//     id,
+//   }
+// }
 
 export default connect()(QuestionPage)

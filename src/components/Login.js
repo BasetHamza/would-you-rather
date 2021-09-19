@@ -59,10 +59,7 @@ class Login extends Component {
         const { users } = this.props
         const { from } = this.props.location.state || { from: { pathname: '/' } }
 
-        // console.log(isLoggedIn);
-
         if (isLoggedIn === true) {
-            console.log(from.pathname);
             return <Redirect to={from.pathname}/>
         }
 

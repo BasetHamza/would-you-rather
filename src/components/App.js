@@ -14,6 +14,10 @@ import NotFound from '../pages/NotFound'
 
 import ProtectedRoute from '../utils/ProtectedRoute'
 
+/*
+ * Routing was done following the video :https://www.youtube.com/watch?v=BmBupjGJcaU&ab_channel=MohammedElzanaty
+ * This was suggested by the session lead.
+ */
 
 class App extends Component {
 
@@ -26,7 +30,7 @@ class App extends Component {
         return (
             <Fragment>
                 <LoadingBar />
-                {this.props.loading === true
+                { this.props.loading === true
                     ? null
                     : 
                         <div>
@@ -56,7 +60,7 @@ class App extends Component {
                                 />
                                 <ProtectedRoute 
                                     path='/question/:id'
-                                    name="Question Details" 
+                                    name="Question Details"
                                     component={QuestionPage} 
                                 />
                                 <Route path="/404" component={NotFound} />
