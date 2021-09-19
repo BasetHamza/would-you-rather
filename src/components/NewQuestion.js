@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { handleAddQuestion } from '../actions/questions'
+import { handleAddQuestion } from '../actions/shared'
 import { Redirect } from 'react-router-dom'
 
 import { Card, Button, Row, Form } from 'react-bootstrap'
@@ -43,7 +43,6 @@ class NewQuestion extends Component {
             optionOneText: '',
             optionTwoText: '',
             toHome: true,
-
         }))
     }
 

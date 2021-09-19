@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Card, Button, Col, Row, Alert, ProgressBar } from 'react-bootstrap'
+import { Card, Button, Col, Row, Alert, ProgressBar, Form , InputGroup, FormControl} 
+    from 'react-bootstrap'
 
 /*
  * A component that will render a detailed question card 
@@ -10,6 +11,22 @@ import { Card, Button, Col, Row, Alert, ProgressBar } from 'react-bootstrap'
  */
 
 class Question extends Component {
+
+    state = {
+        selection: '',
+    }
+
+    handleChange = (e) => {
+        console.log(e.target.id)
+        this.setState(() => ({
+            selection: e.target.id
+        }))
+    }
+
+    handleSubmit = (e) => {
+        console.log(e.target.id)
+    }
+
     render() {        
         
         const { question, authedUser, users, id} = this.props
@@ -22,6 +39,10 @@ class Question extends Component {
             )
         }
 
+        const { author } = question
+        const optionOneText = question.optionOne.text
+        const optionTwoText = question.optionTwo.text
+
         /*
          * Checking if the authedUser has already answered the question or not
          * This will decide which kind of question card we will render. 
@@ -31,9 +52,7 @@ class Question extends Component {
         
         if (id in users[authedUser].answers ){
 
-            const { author } = question
-            const optionOneText = question.optionOne.text
-            const optionTwoText = question.optionTwo.text
+
             const optionOneVotes = question.optionOne.votes.length
             const optionTwoVotes = question.optionTwo.votes.length
             const totalVotes = optionOneVotes + optionTwoVotes
@@ -106,7 +125,48 @@ class Question extends Component {
         } else {
             return (
                 <div>
-                    
+                    <Row className="justify-content-md-center">
+                        <Card className="text-center" style={{ width: '50rem' }} >
+                            <Card.Header ><h3>{users[author].name} Asks:</h3></Card.Header>
+                            <Row className="align-items-center">
+                                <Col md='3'>
+                                    <Card.Img variant="left" src={users[author].avatarURL} />
+                                </Col>
+                            </Row>
+                            <Card.Body>
+                                <Form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+
+                                    <Card.Text>
+                                        Would you rather ...
+                                    </Card.Text>
+
+                                    <Col sm={10}>
+                                            <Form.Check
+                                            type="radio"
+                                            label={optionOneText}
+                                            name="formHorizontalRadios"
+                                            id="optionOne"
+                                            />
+                                            <Form.Check
+                                            type="radio"
+                                            label={optionTwoText}
+                                            name="formHorizontalRadios"
+                                            id="optionTwo"
+                                            />
+                                    </Col>             
+
+                                    <Button 
+                                        variant="primary"
+                                        type='submit' 
+                                        disabled={this.state.selection === ''}
+                                    >
+                                        Submit Answer
+                                    </Button>
+
+                                </Form>
+                            </Card.Body>
+                        </Card>
+                    </Row>
                 </div>
             )
         }
