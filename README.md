@@ -4,6 +4,10 @@ This is my version of the "Would you rather ... ?" project that is part of the U
 
 The project focues on the use of [React](https://reactjs.org/) along with [Redux](https://redux.js.org/)
 
+## Authors
+
+- [Baset Hamza](https://github.com/BasetHamza)
+
 ## Startup code
 
 The `_DATA.js` file represents a fake database and methods that let us access the data. The only thing we need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so we’ll need to add the path to each user’s avatar.

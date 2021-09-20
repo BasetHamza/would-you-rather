@@ -49,7 +49,7 @@ class App extends Component {
                                 />
                                 <ProtectedRoute 
                                     exact 
-                                    path='/new' 
+                                    path='/add' 
                                     name="New Question"
                                     component={NewQuestionPage} 
                                 />
@@ -59,11 +59,11 @@ class App extends Component {
                                     component={LeaderBoardPage} 
                                 />
                                 <ProtectedRoute 
-                                    path='/question/:id'
+                                    path='/questions/:id'
                                     name="Question Details"
                                     component={QuestionPage} 
                                 />
-                                <Route path="/404" component={NotFound} />
+                                <Route path="*" component={NotFound} />
                                 <Redirect to="/404" />
                             </Switch>
                         </div>         

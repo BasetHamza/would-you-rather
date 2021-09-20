@@ -43,7 +43,7 @@ class NavigationBar extends Component{
                                     <Button variant='light' key='/'><NavLink to='/' exact activeClassName='active'>Home</NavLink></Button>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Button variant='light' key='/new'><NavLink to='/new' exact activeClassName='active'>New Question</NavLink></Button>
+                                    <Button variant='light' key='/add'><NavLink to='/add' exact activeClassName='active'>New Question</NavLink></Button>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Button variant='light' key='/leaderboard'><NavLink to='/leaderboard' exact activeClassName='active'>Leader Board</NavLink></Button>
