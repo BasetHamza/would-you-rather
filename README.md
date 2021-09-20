@@ -1,10 +1,86 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+This is my version of the "Would you rather ... ?" project that is part of the Udacity's React & Redux course.
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+The project focues on the use of [React](https://reactjs.org/) along with [Redux](https://redux.js.org/)
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+## Startup code
+
+The `_DATA.js` file represents a fake database and methods that let us access the data. The only thing we need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so we’ll need to add the path to each user’s avatar.
+
+No HTML or CSS codes were provided. Everything has to be built from scratch. To speed up the development and since styling is not the main purpose of the project, the [React Bootstrap](https://react-bootstrap.github.io/) was used to quickly deploy component. Additional work is needed to improve the styling since this was the first time to use the React Bootstrap framework.
+
+## Installation & Launching Directions
+
+1. To install the application clone this git repository or download as zip file
+   ```
+   $ git clone https://github.com/BasetHamza/MyReads_A_Book_Tracking_App.git
+   ```
+2. Go into the application folder
+
+3. Install all project dependencies with `npm` or `yarn`
+
+   `$ npm install`
+
+   or
+
+   `$ yarn install`
+
+4. Start the application using `npm` or `yarn`
+
+   `$ npm start`
+
+   or
+
+   `$ yarn start`
+
+## What You're Getting
+
+```bash
+├── README.md - This file.
+├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+└── src
+    ├── App.css # Styles for your app. Feel free to customize this as you desire.
+    ├── App.js # This is the root of your app. Contains static HTML right now.
+    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
+    ├── utils
+    │   ├── api.js # A JavaScript API for the provided Udacity backend.
+    │   ├── _DATA.js # file represents a fake database and methods that let you access the data.
+    ├── actions
+    │   ├── authedUser.js
+    │   ├── questions.js
+    │   ├── shared.js
+    │   ├── users.js
+    ├── components # A folder that contains all the React components used in this project
+    │   ├── App.js
+    │   ├── LeaderBoard.js
+    │   ├── LeaderBoardUserCard.js
+    │   ├── Login.js
+    │   ├── NavigationBar.js
+    │   ├── NewQuestion.js
+    │   ├── Question.js
+    │   ├── QuestionCard.js
+    │   ├── QuestionList.js
+    ├── middleware # A folder that contains all the middlewares developed for this project
+    │   ├── index.js
+    │   ├── logger.js
+    ├── pages (i.e., views) # A folder that contains all the pages (views)
+    │   ├── HomePage.js
+    │   ├── LeaderBoardPage.js
+    │   ├── LoginPage.js
+    │   ├── NewQUestionPage.js
+    │   ├── NotFound.js
+    │   ├── QuestionPage.js
+    ├── reducers  # A folder that contains all the middlewares developed for this project
+    │   ├── authedUser.js
+    │   ├── index.js
+    │   ├── question.js
+    │   ├── users.js
+    ├── utils  # A folder that contains all helping files
+    │   ├── _DATA_.js
+    │   ├── api.js
+    │   ├── ProtectedRoute.js
+    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
 
 ## Data
 
@@ -55,17 +131,17 @@ Your code will talk to the database via 4 methods:
 
 1. `_getUsers()` Method
 
-_Description_: Get all of the existing users from the database.  
+_Description_: Get all of the existing users from the database.
 _Return Value_: Object where the key is the user’s id and the value is the user object.
 
 2. `_getQuestions()` Method
 
-_Description_: Get all of the existing questions from the database.  
+_Description_: Get all of the existing questions from the database.
 _Return Value_: Object where the key is the question’s id and the value is the question object.
 
 3. `_saveQuestion(question)` Method
 
-_Description_: Save the polling question in the database.  
+_Description_: Save the polling question in the database.
 _Parameters_: Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
 
 | Attribute     | Type   | Description                                |
@@ -94,7 +170,4 @@ _Parameters_: Object that contains the following properties: `authedUser`, `qid`
 | authedUser | String | The id of the user who answered the question                                            |
 | qid        | String | The id of the question that was answered                                                |
 | answer     | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"` |
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
+```
