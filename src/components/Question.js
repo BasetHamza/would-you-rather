@@ -43,9 +43,14 @@ class Question extends Component {
         
         const { question, authedUser, users, id, toHome} = this.props
 
-        if (toHome === true) {
-            return <Redirect to='/' />
-        }
+        // The required behavior was to stay on the same question page and show the results.
+        // The behavior was achieved, although through a mistake in the code.
+        // Fixed the bug from using toHome to this.state.toHome, but to maintain the behavior, I removed
+        // the check to go back to home and redirecting.
+        
+        // if (this.state.toHome === true) {
+        //     return <Redirect to='/' />
+        // }
 
         if (question === null){
             return (
