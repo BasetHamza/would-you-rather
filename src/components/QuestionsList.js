@@ -22,7 +22,7 @@ class QuestionsList extends Component {
             if (tabID === 'answered'){
                 return (
                     <Alert key='questionNotFound' variant='warning'>
-                        Ops! You do not have answered questions. Check the un answered 
+                        Ops! You do not have answered questions. Check the unanswered 
                         question tab or consider creating your own question in the "New Question"
                         tab.
                     </Alert>
@@ -55,9 +55,13 @@ class QuestionsList extends Component {
 
 function mapStateToProps( {authedUser, questions}, props ) {
 
-    const {tabID} = props
+    const { tabID } = props
 
-    // If the passed match prop is answered, we will return the answered questions, otherwise, we return the unanswered questions.
+
+    /*
+     * If the passed match prop is answered, we will return the answered questions, 
+     * otherwise, we return the unanswered questions.
+     */
 
     return {
         authedUser,
