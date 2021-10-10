@@ -29,6 +29,11 @@ class QuestionCard extends Component {
         }
 
         const { author } = question
+        
+        /*
+         * We need this since the Question card only shows the first option as a teaser.
+         * User can click the card for a detailed view.
+         */
         const optionOneText = question.optionOne.text
 
         return (

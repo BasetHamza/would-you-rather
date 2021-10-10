@@ -63,6 +63,8 @@ No HTML or CSS codes were provided. Everything has to be built from scratch. To 
     │   ├── NavigationBar.js
     │   ├── NewQuestion.js
     │   ├── Question.js
+    │   ├── QuestionAnswered.js
+    │   ├── QuestionUnanswered.js
     │   ├── QuestionCard.js
     │   ├── QuestionList.js
     ├── middleware # A folder that contains all the middlewares developed for this project
