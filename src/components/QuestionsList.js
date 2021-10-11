@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Alert } from 'react-bootstrap'
+import { Alert, Row, Card } from 'react-bootstrap'
 
 import QuestionCard from './QuestionCard';
 
@@ -38,16 +38,20 @@ class QuestionsList extends Component {
         else {
             return (
                 <div>
-                    <ul>
-                        {
-                        questionListIds.map((questionId) => (
-                            <li key={questionId} >
-                                <QuestionCard id={questionId}/>
-                            </li>
-                        ))
-                        }
-                    </ul>
-                </div>
+                                    <Row className="justify-content-md-center">
+                    <Card className="text-center" style={{ width: '50rem' }} >
+                        <ul>
+                            {
+                            questionListIds.map((questionId) => (
+                                <li key={questionId} >
+                                    <QuestionCard id={questionId}/>
+                                </li>
+                            ))
+                            }
+                        </ul>
+                                            </Card>
+                </Row>
+                    </div>
             )
         }
     }

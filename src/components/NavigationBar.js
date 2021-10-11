@@ -9,32 +9,41 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap'
  * This componenet render the navigation bar which sits at the top of each Page
  * component in the ../pages directory.
  */
+
+
 class NavigationBar extends Component{
 
-    state = {
-        logout: false,
-    }
+    // state = {
+        /*
+         * It turns out that keeping the logout state caused a problem of infinitly reloading the login
+         * page causing the state to be set to false infinitly which led to the program to crash.
+         * Removing logout fixed the issue and caused the app to operate correctly since the authedUser is
+         * already reset which automatically loads the login page (most likely because of the way the protected route
+         * is implemented)
+         */
+        //     logout: false,
+    // }
 
     logout = () => {
         const { dispatch } = this.props
 
         dispatch(setAuthedUser(""))
 
-        this.setState(() => ({
-            logout: true,
-        }))
+        // this.setState(() => ({
+        //     logout: true,
+        // }))
     }
 
     render(){
-        const { logout } = this.state
-        const { users, tabPath } = this.props
+        // const { logout } = this.state
+        // const { users, tabPath } = this.props
+        const { users } = this.props
+        const { tabPath } = this.props.location.pathname
 
 
-        console.log(logout);
-
-        if (logout) {
-            this.props.history.push('/login')
-        }
+        // if (logout) {
+        //     this.props.history.push('/login')
+        // }
 
         return(
             <div>
@@ -69,7 +78,7 @@ class NavigationBar extends Component{
                                     <Button 
                                         className="btn btn-outline-primary mr-1" 
                                         variant="warning"
-                                        onClick={this.logout    }
+                                        onClick={this.logout}
                                     >
                                         Logout
                                     </Button>
@@ -86,14 +95,20 @@ class NavigationBar extends Component{
 
 function mapStateToProps ({ authedUser, users }, props) {
 
-    const {tabPath} = props && Object.keys(props).length === 0 && props.constructor === Object
-    ? ""
-    : props.match.params
+    /*
+     * Since we placed a single navigation bar in the App component instead of one in each view.
+     * Now, we have to figure out a way to detect which path we are in since we do not have the 
+     * tabPath anymore.
+     */
+
+    // const {tabPath} = props && Object.keys(props).length === 0 && props.constructor === Object
+    // ? ""
+    // : props.match.params
 
     return {
         authedUser,
         users,
-        tabPath,
+        // tabPath,
     }
 }
 
