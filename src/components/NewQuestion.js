@@ -67,7 +67,7 @@ class NewQuestion extends Component {
                                     Complete the question
                                 </Card.Text>
                     
-                                <Card.Text style={{fontSize: 30, color: 'green'}} >
+                                <Card.Text style={{fontSize: 30, color: 'green'}} className="font-weight-bold">
                                     Would you rather ...
                                 </Card.Text>
                     
@@ -81,7 +81,7 @@ class NewQuestion extends Component {
                                     onChange={this.handleChange}
                                 />
                     
-                                <Card.Text className="font-weight-bold">
+                                <Card.Text style={{fontSize: 30, color: 'green'}} className="font-weight-bold">
                                     -OR-
                                 </Card.Text>
                     

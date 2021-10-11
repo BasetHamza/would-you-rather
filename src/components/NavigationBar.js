@@ -63,7 +63,7 @@ class NavigationBar extends Component{
                                                 <Image src={users[this.props.authedUser].avatarURL} roundedCircle thumbnail/>
                                             </Col>
                                             <Col>
-                                                Hello, <strong>{users[this.props.authedUser].name}</strong>
+                                                Hello, <span style={{color: 'green'}}><strong>{users[this.props.authedUser].name}</strong></span>
                                             </Col>
                                         </Row>
                                     </Navbar.Collapse>

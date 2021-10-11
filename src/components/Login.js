@@ -64,15 +64,15 @@ class Login extends Component {
         }
 
         return (
-            <div className="col-xs-1" align="center">
+            <div className="col-xs-1 mt-5" align="center">
 
-                <Card style={{ width: '40rem' }} className="text-center " bg='light'>
+                <Card style={{ width: '40rem' }} className="text-center" bg='light'>
 
-                    <Card.Header>Welcome to <strong>Would You Rather App ... ?</strong></Card.Header>
+                    <Card.Header style={{fontSize: 25}}>Welcome to <strong>Would You Rather App ... ?</strong></Card.Header>
 
                     <Card.Body className="d-grid gap-5">
                         
-                        <Card.Title>
+                        <Card.Title style={{fontSize: 20}}>
                             Please sign in below to continue!
                         </Card.Title>
                         
@@ -100,7 +100,6 @@ class Login extends Component {
                             size="lg"
                             onSelect={this.updateSelection}
                         >
-
                             {this.props.userIds.map((id) => (
                                 <div 
                                     className="align-items-center" 
@@ -138,18 +137,19 @@ class Login extends Component {
 
                         </DropdownButton>
                         
-                        <Button 
-                            variant="success" 
-                            size="lg"
-                            type='submit'
-                            onClick={this.handleSignIn}
-                            disabled={selection === 'Select User' || selection === ''}
-                        >
-                            Sign In
-                        </Button>
-                    
+                        <div class="col text-center">
+                            <Button
+                                className="w-50"
+                                variant="success"
+                                size="lg"
+                                type='submit'
+                                onClick={this.handleSignIn}
+                                disabled={selection === 'Select User' || selection === ''}
+                            >
+                                Sign In
+                            </Button>
+                        </div>
                     </Card.Body>
-
                 </Card>
             </div>
         )
