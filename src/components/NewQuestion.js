@@ -55,7 +55,7 @@ class NewQuestion extends Component {
         }
 
         return (
-            <div>
+            <div className='mt-5'>
                 <Row className="justify-content-md-center">
                     <Card className="text-center" style={{ width: '50rem' }} >
                         <Card.Header ><h3>Create New Question</h3></Card.Header>
@@ -63,11 +63,11 @@ class NewQuestion extends Component {
                         <Card.Body>
                             <Form onSubmit={this.handleSubmit}>
                     
-                                <Card.Text>
-                                    Complete the question.
+                                <Card.Text style={{fontSize: 20}}>
+                                    Complete the question
                                 </Card.Text>
                     
-                                <Card.Text>
+                                <Card.Text style={{fontSize: 30, color: 'green'}} >
                                     Would you rather ...
                                 </Card.Text>
                     

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 import { NavLink, withRouter } from 'react-router-dom'
 
-import { Navbar, Container, Nav, Button } from 'react-bootstrap'
+import { Navbar, Container, Nav, Button, Row, Col, Image } from 'react-bootstrap'
 
 /**
  * This componenet render the navigation bar which sits at the top of each Page
@@ -56,11 +56,16 @@ class NavigationBar extends Component{
 
                         {
                             this.props.authedUser !== "" && (
-                                <Navbar.Collapse>
+                                <Navbar.Collapse> 
                                     <Navbar.Collapse>
-                                        <Navbar.Text>
-                                            Hello, <strong>{users[this.props.authedUser].name}</strong>
-                                        </Navbar.Text>
+                                        <Row className="align-items-center">
+                                            <Col md='3'>
+                                                <Image src={users[this.props.authedUser].avatarURL} roundedCircle thumbnail/>
+                                            </Col>
+                                            <Col>
+                                                Hello, <strong>{users[this.props.authedUser].name}</strong>
+                                            </Col>
+                                        </Row>
                                     </Navbar.Collapse>
 
                                     <Button 
