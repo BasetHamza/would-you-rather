@@ -15,13 +15,14 @@ import { Alert } from 'react-bootstrap'
 
 class Question extends Component {
 
-    state = {
-        toHome: false,
-    }
+    // state = {
+    //     toHome: false,
+    // }
 
     render() {        
         
-        const { question, authedUser, users, id, toHome} = this.props
+        // const { question, authedUser, users, id, toHome} = this.props
+        const { question, authedUser, users, id } = this.props
 
         /*
          * The required behavior was to stay on the same question page and show the results.

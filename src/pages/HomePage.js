@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 
 import { Tabs, Tab, Container, Card } from 'react-bootstrap'
 
-import NavigationBar from '../components/NavigationBar'
+// import NavigationBar from '../components/NavigationBar'
 import QuestionsList from '../components/QuestionsList'
 
 class HomePage extends Component {
     render() {
         return(
             <div>
-                <NavigationBar match={{params: {tabPath: '/home'}}}/>
+                {/* <NavigationBar match={{params: {tabPath: '/home'}}}/> */}
                 <Container>
                     <Card bg='light' style={{ width: '55rem' }}>
                         <Card.Body>
