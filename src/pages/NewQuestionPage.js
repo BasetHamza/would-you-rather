@@ -6,7 +6,7 @@ class NewQuestionPage extends Component{
     render(){
         return(
             <div>
-                <NavigationBar match={{params: {tabPath: '/new'}}}/>
+                {/* <NavigationBar match={{params: {tabPath: '/new'}}}/> */}
                 <NewQuestion />
             </div>
         )

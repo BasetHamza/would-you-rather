@@ -4,7 +4,7 @@ import NavigationBar from "../components/NavigationBar";
 function NotFound() {
   return (
     <>
-      <NavigationBar />
+      {/* <NavigationBar /> */}
       <div>
         <span>404</span> page not found
       </div>

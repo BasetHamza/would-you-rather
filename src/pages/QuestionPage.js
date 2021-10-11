@@ -10,7 +10,7 @@ class QuestionPage extends Component{
 
         return(
             <div>
-                <NavigationBar />
+                {/* <NavigationBar /> */}
                 <Question match={{params: {id: id}}}/>
             </div>
         )

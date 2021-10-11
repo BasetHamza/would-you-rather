@@ -5,6 +5,7 @@ import { BrowserRouter as Redirect, Route, Switch } from 'react-router-dom'
 
 import { handleInitialData } from '../actions/shared'
 
+import NavigationBar from '../components/NavigationBar'
 import LoginPage from '../pages/LoginPage'
 import HomePage from '../pages/HomePage'
 import NewQuestionPage from '../pages/NewQuestionPage'
@@ -34,6 +35,7 @@ class App extends Component {
                     ? null
                     : 
                         <div>
+                            <NavigationBar />
                             <Switch>
                                 <Route 
                                     exact 
