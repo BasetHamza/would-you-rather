@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { Tabs, Tab, Container, Card } from 'react-bootstrap'
 
-import NavigationBar from '../components/NavigationBar'
+// import NavigationBar from '../components/NavigationBar'
 import QuestionsList from '../components/QuestionsList'
 
 class HomePage extends Component {

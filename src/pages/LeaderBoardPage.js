@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NavigationBar from '../components/NavigationBar'
+// import NavigationBar from '../components/NavigationBar'
 import LeaderBoard from '../components/LeaderBoard'
 
 class LeaderBoardPage extends Component{

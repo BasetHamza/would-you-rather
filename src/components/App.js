@@ -31,45 +31,47 @@ class App extends Component {
         return (
             <Fragment>
                 <LoadingBar />
-                { this.props.loading === true
-                    ? null
-                    : 
-                        <div>
-                            <NavigationBar />
-                            <Switch>
-                                <Route 
-                                    exact 
-                                    path='/login' 
-                                    name="Login Page" 
-                                    render={(props) => <LoginPage {...props} />}
-                                />
-                                <ProtectedRoute 
-                                    exact
-                                    path='/' 
-                                    name="Home Page"
-                                    component={HomePage} 
-                                />
-                                <ProtectedRoute 
-                                    exact 
-                                    path='/add' 
-                                    name="New Question"
-                                    component={NewQuestionPage} 
-                                />
-                                <ProtectedRoute 
-                                    path='/leaderboard' 
-                                    name="Leader Board"
-                                    component={LeaderBoardPage} 
-                                />
-                                <ProtectedRoute 
-                                    path='/questions/:id'
-                                    name="Question Details"
-                                    component={QuestionPage} 
-                                />
-                                <Route path="*" component={NotFound} />
-                                <Redirect to="/404" />
-                            </Switch>
-                        </div>         
-                        }
+                <div>
+                    <NavigationBar />
+                    { this.props.loading === true
+                        ? null
+                        :
+                            <div>
+                                <Switch>
+                                    <Route
+                                        exact
+                                        path='/login'
+                                        name="Login Page"
+                                        render={(props) => <LoginPage {...props} />}
+                                    />
+                                    <ProtectedRoute
+                                        exact
+                                        path='/'
+                                        name="Home Page"
+                                        component={HomePage}
+                                    />
+                                    <ProtectedRoute
+                                        exact
+                                        path='/add'
+                                        name="New Question"
+                                        component={NewQuestionPage}
+                                    />
+                                    <ProtectedRoute
+                                        path='/leaderboard'
+                                        name="Leader Board"
+                                        component={LeaderBoardPage}
+                                    />
+                                    <ProtectedRoute
+                                        path='/questions/:id'
+                                        name="Question Details"
+                                        component={QuestionPage}
+                                    />
+                                    <Route path="*" component={NotFound} />
+                                    <Redirect to="/404" />
+                                </Switch>
+                            </div>
+                    }
+                </div>
             </Fragment>
             )
 

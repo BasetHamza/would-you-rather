@@ -15,7 +15,7 @@ class NavigationBar extends Component{
         logout: false,
     }
 
-    resetAuthedUser = () => {
+    logout = () => {
         const { dispatch } = this.props
 
         dispatch(setAuthedUser(""))
@@ -28,6 +28,9 @@ class NavigationBar extends Component{
     render(){
         const { logout } = this.state
         const { users, tabPath } = this.props
+
+
+        console.log(logout);
 
         if (logout) {
             this.props.history.push('/login')
@@ -66,7 +69,7 @@ class NavigationBar extends Component{
                                     <Button 
                                         className="btn btn-outline-primary mr-1" 
                                         variant="warning"
-                                        onClick={this.resetAuthedUser}
+                                        onClick={this.logout    }
                                     >
                                         Logout
                                     </Button>
