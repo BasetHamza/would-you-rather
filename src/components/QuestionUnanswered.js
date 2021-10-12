@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { handleAddAnswer } from '../actions/shared'
 
-import { Card, Col, Row, Button, Form, Image } 
+import { Card, Col, Row, Button, Form, Image, ButtonGroup, Container } 
     from 'react-bootstrap'
 
 /**
@@ -47,56 +47,60 @@ class QuestionUnanswered extends Component {
         return (
             <div style={{display: 'flex', justifyContent: 'center'}}  className="mt-5">
                 <Card className="text-center" style={{ width: '50rem' }} >
-                    <Row className="justify-content-md-center">
-                        <Col md='3'>
-                            <Image src={users[author].avatarURL} roundedCircle thumbnail/>
-                        </Col>
-
-                        <Card.Text style={{color:'blue', fontWeight:'bold', fontSize: 25}}>{users[author].name}</Card.Text>
-                        <Card.Text style={{fontSize: 20, fontWeight:'bold'}}>asks:</Card.Text>
-
-                        <Card.Text style={{color:'green', fontWeight:'bold', fontSize: 25}}>Would you rather ...</Card.Text>
-                    </Row>
-                    
                     <Card.Body>
-                            <Form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-                                <Col md={{ span: 6, offset: 3 }}>
-                                    <Row>
-                                        <Col>
-                                            <Form.Check
-                                            type="radio"
-                                            label={optionOneText}
-                                            name="formHorizontalRadios"
-                                            id="optionOne"
-                                            />
-                                        </Col>
-                                    </Row>
+                        <Row className="justify-content-md-center">
+                            <Col md='3'>
+                                <Image src={users[author].avatarURL} roundedCircle thumbnail/>
+                            </Col>
 
-                                    <Row className="mt-3 mb-3">
-                                        <Card.Text style={{color:'green', fontWeight:'bold', fontSize: 20}}>
-                                            --OR--
-                                        </Card.Text>     
-                                    </Row>
+                            <Card.Text style={{color:'blue', fontWeight:'bold', fontSize: 25}}>{users[author].name}</Card.Text>
+                            <Card.Text style={{fontSize: 20, fontWeight:'bold'}}>asks:</Card.Text>
 
-                                    <Row>
-                                        <Form.Check
-                                        type="radio"
-                                        label={optionTwoText}
-                                        name="formHorizontalRadios"
-                                        id="optionTwo"
-                                        />
-                                    </Row>
-                                 </Col>             
-                                <Button
-                                    variant="primary"
-                                    type='submit'
-                                    disabled={this.state.answer === ''}
-                                    className="mt-3"
-                                >
-                                    Submit Answer
-                                </Button>
-                             </Form>
-                         </Card.Body>
+                            <Card.Text style={{color:'green', fontWeight:'bold', fontSize: 25}}>Would you rather ...</Card.Text>
+                        </Row>
+                    
+                        <Container>
+                                <Form onSubmit={this.handleSubmit}>
+                                    <Col>
+                                        <ButtonGroup vertical>
+                                            <Button
+                                                className="mt-3 mb-3"
+                                                onClick={this.handleChange}
+                                                id="optionOne"
+                                            >
+                                                {optionOneText}
+                                            </Button>
+
+                                            <Button 
+                                                variant="" 
+                                                className="mb-3"
+                                                disabled
+                                                style={{color:'green', fontWeight:'bold', fontSize: 20}}
+                                            >
+                                                --OR--
+                                            </Button>{' '}
+
+                                            <Button
+                                                className="mb-3"
+                                                onClick={this.handleChange}
+                                                id="optionTwo"
+                                            >
+                                                {optionTwoText}
+                                            </Button>
+                                        </ButtonGroup>
+                                    </Col>
+                                
+                                    <Button
+                                        variant="success"
+                                        type='submit'
+                                        disabled={this.state.answer === ''}
+                                        className="mt-3"
+                                    >
+                                        Submit Answer
+                                    </Button>
+                                </Form>
+                        </Container>
+                    </Card.Body>
                 </Card>
             </div>
         )
