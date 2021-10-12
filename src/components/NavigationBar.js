@@ -47,8 +47,7 @@ class NavigationBar extends Component{
         // const { logout } = this.state
         // const { users, tabPath } = this.props
         const { users } = this.props
-        const { tabPath } = this.props.location.pathname
-
+        let tabPath = this.props.location.pathname
 
         // if (logout) {
         //     this.props.history.push('/login')

@@ -1,12 +1,12 @@
-// import NavigationBar from "../components/NavigationBar";
-
+import Image from 'react-bootstrap/Card'
+import E404 from "../assets/images/404.png"
 
 function NotFound() {
   return (
     <>
       {/* <NavigationBar /> */}
-      <div>
-        <span>404</span> page not found
+      <div className="col-xs-1 mt-5" align="center">
+        page not found
       </div>
     </>
   );

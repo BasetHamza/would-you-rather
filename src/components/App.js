@@ -66,7 +66,10 @@ class App extends Component {
                                         name="Question Details"
                                         component={QuestionPage}
                                     />
-                                    <Route path="*" component={NotFound} />
+                                    <Route 
+                                        path="*" 
+                                        component={NotFound} 
+                                    />
                                     <Redirect to="/404" />
                                 </Switch>
                             </div>

@@ -41,9 +41,11 @@ class Question extends Component {
 
         if (question === null){
             return (
-                <Alert key='questionNotFound' variant='warning'>
-                    This question doesn't exist!
-                </Alert>
+                <div style={{display: 'flex', justifyContent: 'center'}}  className="mt-5">
+                    <Alert key='questionNotFound' variant='warning'>
+                        This question doesn't exist!
+                    </Alert>
+                </div>
             )
         }
 

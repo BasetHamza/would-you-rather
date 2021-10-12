@@ -21,17 +21,21 @@ class QuestionsList extends Component {
         if (questionListIds.length === 0){        
             if (tabID === 'answered'){
                 return (
-                    <Alert key='questionNotFound' variant='warning'>
-                        Ops! You do not have answered questions. Check the unanswered 
-                        question tab or consider creating your own question in the "New Question"
-                        tab.
-                    </Alert>
+                    <div style={{display: 'flex', justifyContent: 'center'}}  className="mt-5">
+                        <Alert key='questionNotFound' variant='warning'>
+                            Ops! You do not have answered questions. Check the unanswered
+                            question tab or consider creating your own question in the "New Question"
+                            tab.
+                        </Alert>
+                    </div>
                 )
             } else {
                 return (
-                    <Alert key='questionNotFound' variant='success'>
-                        Excellent work! You do not have any unanswered questions.
-                    </Alert>
+                    <div style={{display: 'flex', justifyContent: 'center'}}  className="mt-5">
+                        <Alert key='questionNotFound' variant='success'>
+                            Excellent work! You do not have any unanswered questions.
+                        </Alert>
+                    </div>
                 )
             }
         }
