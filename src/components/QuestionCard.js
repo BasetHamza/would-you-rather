@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
 import { withRouter } from 'react-router-dom'
+
+import { formatDate } from '../utils/helpers';
 
 import { Card, Button, Col, Row, Alert, Image } from 'react-bootstrap'
 
@@ -18,7 +19,7 @@ class QuestionCard extends Component {
     }
 
     render() {        
-        const { question, users, id} = this.props
+        const { question, users, id, date } = this.props
 
         if (question === null) {
             return (
@@ -40,34 +41,31 @@ class QuestionCard extends Component {
             <div className='mt-4'>
                 <Card style={{ width: '50rem' }}>
                     <Row>
-                        <Col md="2">
+                        <Col md="2" className='mt-2 mb-2'>
                             <Image src={users[author].avatarURL} roundedCircle thumbnail/>
                         </Col>
-                            <Col md="3" className='mt-4'>
-                                <Row>{users[author].name} asks:</Row>
-                                <Row>{users[author].name} asks:</Row>
-                            </Col>
+                        
+                        <Col md="3" className='mt-4'>
+                            <Row  style={{fontSize: 18, fontWeight: 'bolder'}}>{users[author].name}</Row>
+                            <Row  style={{fontSize: 15}}>{date}</Row>
+                        </Col>
                     
-
-                {/* <Row className="justify-content-md-center"> */}
-                        <Col>
-                                <Card.Title>Would you rather...</Card.Title>
-                                    <Card.Text>
+                        <Col md="5" className='mt-4'>
+                                <Card.Title style={{color: 'green'}}>Would you rather...</Card.Title>
+                                    <Card.Text style={{fontSize: 20}}>
                                         ...{optionOneText}...
                                     </Card.Text>
-                                                            </Col>
-                        <Col>
-
-                                <Button 
-                                    variant="primary"
-                                    onClick={(e) => this.toQuestion(e, id)}
-                                >
-                                    View Poll
-                                </Button>
                         </Col>
-                                            </Row>
-
-                    {/* </Row> */}
+                        
+                        <Col className='mt-5'>
+                            <Button 
+                                variant="primary"
+                                onClick={(e) => this.toQuestion(e, id)}
+                            >
+                                View Poll
+                            </Button>
+                        </Col>
+                    </Row>
                 </Card>
             </div>
         )
@@ -82,6 +80,7 @@ function mapStateToProps ({ authedUser, users, questions }, { id }) {
         authedUser,
         users,
         question,
+        date: formatDate(question.timestamp)
     }
 }
 
