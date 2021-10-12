@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { withRouter } from 'react-router-dom'
 
-import { Card, Button, Col, Row, Alert } from 'react-bootstrap'
+import { Card, Button, Col, Row, Alert, Image } from 'react-bootstrap'
 
 /**
  * A component that will render a question card to be displayed under the answered or unanswered 
@@ -37,30 +37,37 @@ class QuestionCard extends Component {
         const optionOneText = question.optionOne.text
 
         return (
-            <div>
+            <div className='mt-4'>
                 <Card style={{ width: '50rem' }}>
-                <Row className="justify-content-md-center">
-                    {/* <Card.Header>USER_NAME asks:</Card.Header> */}
-                    <Card.Header>{users[author].name} asks:</Card.Header>
-                        <Col xs lg="2">
-                            <Card.Img variant="left" src={users[author].avatarURL} />
-                            {/* <Card.Img variant="left" src="" /> */}
+                    <Row>
+                        <Col md="2">
+                            <Image src={users[author].avatarURL} roundedCircle thumbnail/>
                         </Col>
-                        <Col >
-                            <Card.Body>
+                            <Col md="3" className='mt-4'>
+                                <Row>{users[author].name} asks:</Row>
+                                <Row>{users[author].name} asks:</Row>
+                            </Col>
+                    
+
+                {/* <Row className="justify-content-md-center"> */}
+                        <Col>
                                 <Card.Title>Would you rather...</Card.Title>
                                     <Card.Text>
                                         ...{optionOneText}...
                                     </Card.Text>
+                                                            </Col>
+                        <Col>
+
                                 <Button 
                                     variant="primary"
                                     onClick={(e) => this.toQuestion(e, id)}
                                 >
                                     View Poll
                                 </Button>
-                            </Card.Body>
                         </Col>
-                    </Row>
+                                            </Row>
+
+                    {/* </Row> */}
                 </Card>
             </div>
         )
