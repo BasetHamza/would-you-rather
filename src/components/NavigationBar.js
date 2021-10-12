@@ -8,7 +8,16 @@ import { Navbar, Container, Nav, Button, Row, Col, Image } from 'react-bootstrap
 /**
  * This componenet render the navigation bar which sits at the top of each Page
  * component in the ../pages directory.
+ * 
+ * 
+ * Face a problem with styling the navigation buttons since they are buttons
+ * surrounding router Link. To overcome this problem, I used Nav.Link and to make
+ * it work properly, I used it as react NavLink
+ * 
+ * https://stackoverflow.com/questions/54843302/reactjs-bootstrap-navbar-and-routing-not-working-together
  */
+
+
 
 
 class NavigationBar extends Component{
@@ -52,13 +61,13 @@ class NavigationBar extends Component{
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav variant="pills" defaultActiveKey={tabPath}>
                                 <Nav.Item>
-                                    <Button variant='light' key='/'><NavLink to='/' exact activeClassName='active'>Home</NavLink></Button>
+                                    <Button variant='light' key='/'><Nav.Link as={NavLink} to='/' exact activeClassName='active'>Home</Nav.Link></Button>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Button variant='light' key='/add'><NavLink to='/add' exact activeClassName='active'>New Question</NavLink></Button>
+                                    <Button variant='light' key='/add'><Nav.Link as={NavLink} to='/add' exact activeClassName='active'>New Question</Nav.Link></Button>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Button variant='light' key='/leaderboard'><NavLink to='/leaderboard' exact activeClassName='active'>Leader Board</NavLink></Button>
+                                    <Button variant='light' key='/leaderboard'><Nav.Link as={NavLink} to='/leaderboard' exact activeClassName='active'>Leader Board</Nav.Link></Button>
                                 </Nav.Item>
                             </Nav>
                         </Navbar.Collapse>
