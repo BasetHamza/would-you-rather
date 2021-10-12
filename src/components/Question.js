@@ -10,7 +10,10 @@ import { Alert } from 'react-bootstrap'
 /*
  * A component that will render a detailed question card 
  * to be displayed when the "View Poll" button is clicked.
- * The view will differ based on the question being answered or not
+ * The view will differ based on the question being answered or not.
+ * 
+ * This Component makes use of the QuestionAnswered and QuestionUnanswered
+ * components
  */
 
 class Question extends Component {

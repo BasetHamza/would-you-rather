@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Card, Col, Row, ProgressBar } 
+import { Card, Col, Row, ProgressBar, Image, Container } 
     from 'react-bootstrap'
 
 /**
@@ -26,64 +26,106 @@ class QuestionAnswered extends Component {
         const authedUserChoice = question.optionOne.votes.includes(authedUser) ? 'optionOne' : 'optionTwo'
         let optionOneBorder = ''
         let optionTwoBorder = ''
+        let optionOneTextColor = ''
+        let optionTwoTextColor = ''
 
         if (authedUserChoice === 'optionOne'){
             optionOneBorder = 'primary'
             optionTwoBorder = ''
+            optionOneTextColor = 'blue'
+            optionTwoTextColor = 'black'
         } else {
             optionOneBorder = ''
             optionTwoBorder = 'primary' 
+            optionOneTextColor = 'black'
+            optionTwoTextColor = 'blue'
         }
 
+        console.log(optionOneTextColor);
+
         return (
-            <div>
-                <Card className="text-center">
-                    <Card.Header>Asked by {users[author].name}</Card.Header>
-                    <Col>
-                        <Card.Img variant="left" src={users[author].avatarURL} />
-                    </Col>
+            <div style={{display: 'flex', justifyContent: 'center'}}  className="mt-5">
+                <Card className="text-center" style={{ width: '50rem' }} >
                     <Row className="justify-content-md-center">
-                        <Card.Body>
-                            <Card.Title>Results: </Card.Title>
-                                <Card
-                                    border={optionOneBorder} 
-                                    style={{ width: '18rem' }}
-                                    className="mb-2"
-                                >
-                                    <Card.Body>
-                                        <Card.Text>
-                                            Would you rather {optionOneText}?
-                                        </Card.Text>
-                                        <ProgressBar now={optionOnePercentage} />
-                                        <Card.Text>
-                                            {optionOnePercentage}%
-                                        </Card.Text>
-                                        <Card.Text>
-                                            {optionOneVotes} out of {totalVotes} votes
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                                <br />
-                                <Card
-                                    border={optionTwoBorder}
-                                    style={{ width: '18rem' }}
-                                    className="mb-2"
-                                >
-                                    <Card.Body>
-                                    <Card.Text>
-                                        Would you rather {optionTwoText}?
-                                    </Card.Text>
-                                    <ProgressBar now={optionTwoPercentage} />
-                                    <Card.Text>
-                                        {optionTwoPercentage}%
-                                    </Card.Text>
-                                    <Card.Text>
-                                        {optionTwoVotes} out of {totalVotes} votes
-                                    </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                        </Card.Body>
+                        <Col md='3'>
+                            <Image src={users[author].avatarURL} roundedCircle thumbnail/>
+                        </Col>
+
+                        <Card.Text style={{color:'blue', fontWeight:'bold', fontSize: 25}}>{users[author].name}</Card.Text>
+                        <Card.Text style={{fontSize: 20, fontWeight:'bold'}}>asks:</Card.Text>
+
+                        <Card.Text style={{color:'green', fontWeight:'bold', fontSize: 25}}>Would you rather ...</Card.Text>
                     </Row>
+
+                    {/* Option 1 */}
+
+                    <Row className="justify-content-md-center mt-3">
+                        <Card
+                               border={optionOneBorder} 
+                               style={{ width: '35rem' }}
+                               className="text-center mb-2"
+                               bg="light"
+                           >
+                               <Card.Body>
+                                   <Card.Text style={{color:optionOneTextColor, fontWeight:'bold', fontSize: 20}}>
+                                       ...{optionOneText}?
+                                   </Card.Text>
+                                   <Container>
+                                       <Row>
+                                           <Col sm={10}>
+                                               <ProgressBar striped now={optionOnePercentage} />
+                                           </Col>
+                                           <Col sm={2}>
+                                               <Card.Text>
+                                                   {optionOnePercentage}%
+                                               </Card.Text>
+                                           </Col>
+                                       </Row>
+                                   </Container>
+                                   <Card.Text>
+                                       {optionOneVotes} out of {totalVotes} votes
+                                   </Card.Text>
+                               </Card.Body>
+                        </Card>
+                    </Row>
+                    
+                    <Row className="mt-3 mb-3">
+                        <Card.Text style={{color:'green', fontWeight:'bold', fontSize: 20}}>
+                            --OR--
+                        </Card.Text>     
+                    </Row>
+
+                    {/* Option 2 */}
+                    <Row className="justify-content-md-center">
+                        <Card
+                            border={optionTwoBorder}
+                            style={{ width: '35rem' }}
+                            className="text-center mb-2"
+                            bg="light"
+                        >
+                            <Card.Body>
+                                <Card.Text style={{color:optionTwoTextColor, fontWeight:'bold', fontSize: 20}}>
+                                    ...{optionTwoText}?
+                                </Card.Text>
+                                <Container>
+                                    <Row sm={10}>
+                                        <Col>
+                                            <ProgressBar striped now={optionTwoPercentage} />
+                                        </Col>
+                                        <Col sm={2}>
+                                            <Card.Text>
+                                                {optionTwoPercentage}%
+                                            </Card.Text>
+                                        </Col>
+                                    </Row>
+                                </Container>
+                                <Card.Text>
+                                    {optionTwoVotes} out of {totalVotes} votes
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Row>
+
                 </Card>
             </div>
         )
