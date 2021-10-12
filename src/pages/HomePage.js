@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Tabs, Tab, Container, Card, Row } from 'react-bootstrap'
+import { Tabs, Tab, Card, Row } from 'react-bootstrap'
 
 // import NavigationBar from '../components/NavigationBar'
 import QuestionsList from '../components/QuestionsList'

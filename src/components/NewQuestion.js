@@ -58,7 +58,7 @@ class NewQuestion extends Component {
             <div className='mt-5'>
                 <Row className="justify-content-md-center">
                     <Card className="text-center" style={{ width: '50rem' }} >
-                        <Card.Header ><h3>Create New Question</h3></Card.Header>
+                        <Card.Header ><h3>Create A New Question</h3></Card.Header>
                     
                         <Card.Body>
                             <Form onSubmit={this.handleSubmit}>

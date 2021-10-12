@@ -18,7 +18,7 @@ class LeaderBoard extends Component {
 
         return(
             <div className='mt-5'>
-                <ul>
+                <ul style={{listStyleType: 'none'}}>
                 {
                     rankedUserIDs.map((userID) => (
                         <li key={userID}>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Alert, Row, Card } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap'
 
 import QuestionCard from './QuestionCard';
 
@@ -38,7 +38,7 @@ class QuestionsList extends Component {
         else {
             return (
                 <div>
-                    <ul>
+                    <ul style={{listStyleType: 'none'}}>
                         {
                         questionListIds.map((questionId) => (
                             <li key={questionId}>
