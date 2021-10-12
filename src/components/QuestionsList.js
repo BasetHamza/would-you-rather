@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Alert } from 'react-bootstrap'
+import { Alert, Row, Card } from 'react-bootstrap'
 
 import QuestionCard from './QuestionCard';
 

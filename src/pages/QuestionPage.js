@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NavigationBar from '../components/NavigationBar'
+// import NavigationBar from '../components/NavigationBar'
 
 import Question from '../components/Question'
 
@@ -10,7 +10,7 @@ class QuestionPage extends Component{
 
         return(
             <div>
-                <NavigationBar />
+                {/* <NavigationBar /> */}
                 <Question match={{params: {id: id}}}/>
             </div>
         )
