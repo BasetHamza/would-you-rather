@@ -17,7 +17,7 @@ class LeaderBoard extends Component {
         const { rankedUserIDs } = this.props
 
         return(
-            <div>
+            <div className='mt-5'>
                 <ul>
                 {
                     rankedUserIDs.map((userID) => (
