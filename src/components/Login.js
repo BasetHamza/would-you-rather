@@ -137,7 +137,7 @@ class Login extends Component {
 
                         </DropdownButton>
                         
-                        <div class="col text-center">
+                        <div className="col text-center">
                             <Button
                                 className="w-50"
                                 variant="success"

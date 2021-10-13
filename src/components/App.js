@@ -11,7 +11,7 @@ import HomePage from '../pages/HomePage'
 import NewQuestionPage from '../pages/NewQuestionPage'
 import LeaderBoardPage from '../pages/LeaderBoardPage'
 import QuestionPage from '../pages/QuestionPage'
-import NotFound from '../pages/NotFound'
+import PageNotFound from '../pages/PageNotFound'
 
 import ProtectedRoute from '../utils/ProtectedRoute'
 
@@ -68,7 +68,8 @@ class App extends Component {
                                     />
                                     <Route 
                                         path="*" 
-                                        component={NotFound} 
+                                        name="Not Found"
+                                        component={PageNotFound} 
                                     />
                                     <Redirect to="/404" />
                                 </Switch>

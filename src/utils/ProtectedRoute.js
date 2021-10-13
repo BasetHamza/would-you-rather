@@ -8,6 +8,8 @@ class ProtectedRoute extends Component {
     const authedUser = this.props.authedUser 
     const { component: Component, exact, path } = this.props
     
+console.log(authedUser);
+
     if (authedUser !== "") {
       return (
         <Route
