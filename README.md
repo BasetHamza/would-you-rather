@@ -203,7 +203,3 @@ _Parameters_: Object that contains the following properties: `authedUser`, `qid`
 | authedUser | String | The id of the user who answered the question                                            |
 | qid        | String | The id of the question that was answered                                                |
 | answer     | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"` |
-
-```
-
-```
