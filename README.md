@@ -1,20 +1,44 @@
 # Would You Rather Project
 
-This is my version of the "Would you rather ... ?" project that is part of the Udacity's React & Redux course.
+This is my implementation of the "Would you rather ... ?" game that is part of the [Udacity Frontend Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011).
 
-The project focues on the use of [React](https://reactjs.org/) along with [Redux](https://redux.js.org/)
+In this game, a user is asked login first. Players ask/answer questions in the form: “Would you rather [option_one] or [option_two] ?”. The player must choose one of the options. In the app, users can view the questions they answered and the questions they haven't answered yet. They will be able to answer questions, view answered questions with stats on the responses of all players (i.e., see how other people have voted), create new questions, and see the ranking of users on the leaderboard.
+
+The project focues on the use of [React](https://reactjs.org/) along with [Redux](https://redux.js.org/) to design an application.
 
 ## Authors
 
+---
+
 - [Baset Hamza](https://github.com/BasetHamza)
 
-## Startup code
+## Technology Used & Startup code
 
-The `_DATA.js` file represents a fake database and methods that let us access the data. The only thing we need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so we’ll need to add the path to each user’s avatar.
+---
 
-No HTML or CSS codes were provided. Everything has to be built from scratch. To speed up the development and since styling is not the main purpose of the project, the [React Bootstrap](https://react-bootstrap.github.io/) was used to quickly deploy component. Additional work is needed to improve the styling since this was the first time to use the React Bootstrap framework.
+The project has been bootstrapped using [Create React App](https://github.com/facebook/create-react-app).
+
+The [startup code provided by Udacity](https://github.com/udacity/reactnd-project-would-you-rather-starter) consists of a pseudo backend server to help with the development of the pplication. No HTML or CSS codes were provided. Everything has to be built from scratch.
+
+### Backend Server
+
+The `_DATA.js` file represents a pseudo database and methods that let us access the data. The structure and funtionality of the `_DATA.js` will be explained later in details under [Data](#Data) section.
+
+**Note:** Since the app relies on a pseudo backend server, the data is non-persistent. This means that new questions and answers will be lost after refresh the browser or the application is restarted.
+
+### UI
+
+To speed up the development and since styling is not the main purpose of the project, the [React Bootstrap](https://react-bootstrap.github.io/) was used to quickly deploy component.
+
+## Preview
+
+---
+
+![GIF Demo of the application](/\src\assets\screenshots\demo.gif))
 
 ## Installation & Launching Directions
+
+---
 
 1. To install the application clone this git repository or download as zip file
    ```
@@ -39,6 +63,8 @@ No HTML or CSS codes were provided. Everything has to be built from scratch. To 
    `$ yarn start`
 
 ## What You're Getting
+
+---
 
 ```bash
 ├── README.md - This file.
@@ -87,8 +113,11 @@ No HTML or CSS codes were provided. Everything has to be built from scratch. To 
     │   ├── api.js
     │   ├── ProtectedRoute.js
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+```
 
 ## Data
+
+---
 
 There are two types of objects stored in our database:
 
@@ -176,4 +205,7 @@ _Parameters_: Object that contains the following properties: `authedUser`, `qid`
 | authedUser | String | The id of the user who answered the question                                            |
 | qid        | String | The id of the question that was answered                                                |
 | answer     | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"` |
+
+```
+
 ```
