@@ -34,7 +34,7 @@ To speed up the development and since styling is not the main purpose of the pro
 
 
 
-![GIF Demo of the application](/\src\assets\screenshots\demo.gif))
+![GIF Demo of the application](/src/assets/screenshots/demo.gif))
 
 ## Installation & Launching Directions
 
