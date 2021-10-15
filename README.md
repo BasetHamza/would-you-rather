@@ -16,7 +16,7 @@ The project focues on the use of [React](https://reactjs.org/) along with [Redux
 
 
 
-The project has been bootstrapped using [Create React App](https://github.com/facebook/create-react-app).
+The project has been bootstrapped using [Create React App](https://github.com/facebook/create-react-app.
 
 The [startup code provided by Udacity](https://github.com/udacity/reactnd-project-would-you-rather-starter) consists of a pseudo backend server to help with the development of the pplication. No HTML or CSS codes were provided. Everything has to be built from scratch.
 
