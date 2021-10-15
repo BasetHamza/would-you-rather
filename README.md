@@ -8,13 +8,13 @@ The project focues on the use of [React](https://reactjs.org/) along with [Redux
 
 ## Authors
 
----
+
 
 - [Baset Hamza](https://github.com/BasetHamza)
 
 ## Technology Used & Startup code
 
----
+
 
 The project has been bootstrapped using [Create React App](https://github.com/facebook/create-react-app).
 
@@ -32,13 +32,13 @@ To speed up the development and since styling is not the main purpose of the pro
 
 ## Preview
 
----
+
 
 ![GIF Demo of the application](/\src\assets\screenshots\demo.gif))
 
 ## Installation & Launching Directions
 
----
+
 
 1. To install the application clone this git repository or download as zip file
    ```
@@ -64,7 +64,7 @@ To speed up the development and since styling is not the main purpose of the pro
 
 ## What You're Getting
 
----
+
 
 ```bash
 ├── README.md - This file.
@@ -116,8 +116,6 @@ To speed up the development and since styling is not the main purpose of the pro
 ```
 
 ## Data
-
----
 
 There are two types of objects stored in our database:
 
