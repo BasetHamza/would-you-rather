@@ -56,63 +56,72 @@ To speed up the development and since styling is not the main purpose of the pro
 
 ## What You're Getting
 
-```bash
-├── README.md - This file.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-└── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── utils
-    │   ├── api.js # A JavaScript API for the provided Udacity backend.
-    │   ├── _DATA.js # file represents a fake database and methods that let you access the data.
-    ├── actions
-    │   ├── authedUser.js
-    │   ├── questions.js
-    │   ├── shared.js
-    │   ├── users.js
-    ├── components # A folder that contains all the React components used in this project
-    │   ├── App.js
-    │   ├── LeaderBoard.js
-    │   ├── LeaderBoardUserCard.js
-    │   ├── Login.js
-    │   ├── NavigationBar.js
-    │   ├── NewQuestion.js
-    │   ├── Question.js
-    │   ├── QuestionAnswered.js
-    │   ├── QuestionUnanswered.js
-    │   ├── QuestionCard.js
-    │   ├── QuestionList.js
-    ├── middleware # A folder that contains all the middlewares developed for this project
-    │   ├── index.js
-    │   ├── logger.js
-    ├── pages (i.e., views) # A folder that contains all the pages (views)
-    │   ├── HomePage.js
-    │   ├── LeaderBoardPage.js
-    │   ├── LoginPage.js
-    │   ├── NewQUestionPage.js
-    │   ├── NotFound.js
-    │   ├── QuestionPage.js
-    ├── reducers  # A folder that contains all the middlewares developed for this project
-    │   ├── authedUser.js
-    │   ├── index.js
-    │   ├── question.js
-    │   ├── users.js
-    ├── utils  # A folder that contains all helping files
-    │   ├── _DATA_.js
-    │   ├── api.js
-    │   ├── ProtectedRoute.js
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
-```
+<details>
+  <summary>Click to expand the durectory tree!</summary>
+  
+   ```bash
+   ├── README.md - This file.
+   ├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+   └── src
+      ├── App.css # Styles for your app. Feel free to customize this as you desire.
+      ├── App.js # This is the root of your app. Contains static HTML right now.
+      ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
+      ├── utils
+      │   ├── api.js # A JavaScript API for the provided Udacity backend.
+      │   ├── _DATA.js # file represents a fake database and methods that let you access the data.
+      ├── actions
+      │   ├── authedUser.js
+      │   ├── questions.js
+      │   ├── shared.js
+      │   ├── users.js
+      ├── components # A folder that contains all the React components used in this project
+      │   ├── App.js
+      │   ├── LeaderBoard.js
+      │   ├── LeaderBoardUserCard.js
+      │   ├── Login.js
+      │   ├── NavigationBar.js
+      │   ├── NewQuestion.js
+      │   ├── Question.js
+      │   ├── QuestionAnswered.js
+      │   ├── QuestionUnanswered.js
+      │   ├── QuestionCard.js
+      │   ├── QuestionList.js
+      ├── middleware # A folder that contains all the middlewares developed for this project
+      │   ├── index.js
+      │   ├── logger.js
+      ├── pages (i.e., views) # A folder that contains all the pages (views)
+      │   ├── HomePage.js
+      │   ├── LeaderBoardPage.js
+      │   ├── LoginPage.js
+      │   ├── NewQUestionPage.js
+      │   ├── NotFound.js
+      │   ├── QuestionPage.js
+      ├── reducers  # A folder that contains all the middlewares developed for this project
+      │   ├── authedUser.js
+      │   ├── index.js
+      │   ├── question.js
+      │   ├── users.js
+      ├── utils  # A folder that contains all helping files
+      │   ├── _DATA_.js
+      │   ├── api.js
+      │   ├── ProtectedRoute.js
+      └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+   ```
+</details>
 
 ## Data
 
 There are two types of objects stored in our database:
 
-- Users
-- Questions
+- [Users](#Users)
+- [Questions](#Questions)
+
+In the following, you can find the details of the attributes and functions you can use to interact with the pseudo backend server.
 
 ### Users
+
+<details>
+  <summary>Click to expand!</summary>
 
 Users include:
 
@@ -124,7 +133,12 @@ Users include:
 | questions | Array  | A list of ids of the polling questions this user created                                                                                                                                                       |
 | answers   | Object | The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options. |
 
+</details>
+
 ### Questions
+
+<details>
+  <summary>Click to expand!</summary>
 
 Questions include:
 
@@ -193,3 +207,7 @@ _Parameters_: Object that contains the following properties: `authedUser`, `qid`
 | authedUser | String | The id of the user who answered the question                                            |
 | qid        | String | The id of the question that was answered                                                |
 | answer     | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"` |
+
+</details>
+
+## Lessons Learned
