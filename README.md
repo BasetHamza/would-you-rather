@@ -211,3 +211,9 @@ _Parameters_: Object that contains the following properties: `authedUser`, `qid`
 </details>
 
 ## Lessons Learned
+
+In addition to learning how to implement [React](https://reactjs.org/), [Redux](https://redux.js.org/), and [React Bootstrap](https://react-bootstrap.github.io/) to build a quick application, the following are some lessons learned.
+
+1. [Handling Multiple Inputs with a Single onChange Handler in React](https://www.pluralsight.com/guides/handling-multiple-inputs-with-single-onchange-handler-react)
+
+2. Faced a problem with styling the navigation buttons since they are buttons surrounding router Link. To overcome this problem, I used Nav.Link and to make it work properly, I used it as react NavLink. This was discussed in the Stack Overflow question [ReactJS Bootstrap Navbar and Routing not working together](https://stackoverflow.com/questions/54843302/reactjs-bootstrap-navbar-and-routing-not-working-together)

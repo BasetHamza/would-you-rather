@@ -10,7 +10,7 @@ import { Navbar, Container, Nav, Button, Row, Col, Image } from 'react-bootstrap
  * component in the ../pages directory.
  * 
  * 
- * Face a problem with styling the navigation buttons since they are buttons
+ * Faced a problem with styling the navigation buttons since they are buttons
  * surrounding router Link. To overcome this problem, I used Nav.Link and to make
  * it work properly, I used it as react NavLink
  * 
